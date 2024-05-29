@@ -62,19 +62,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
-
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-
+ 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'eu-cluster-west-01.k8s.cleardb.net',
-	'username' => 'b9833f4ee443db',
-	'password' => '9ea896f3',
-	'database' => 'heroku_51185cac510e374',
+	'hostname' => $url["host"],
+	'username' => $url["user"],
+	'password' => $url["pass"],
+	'database' => substr($url["path"], 1),
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
-	'db_debug' => TRUE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
 	'cachedir' => '',
 	'char_set' => 'utf8',
@@ -86,3 +85,27 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+// $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+// $db['default'] = array(
+// 	'dsn'	=> '',
+// 	'hostname' => 'eu-cluster-west-01.k8s.cleardb.net',
+// 	'username' => 'b9833f4ee443db',
+// 	'password' => '9ea896f3',
+// 	'database' => 'heroku_51185cac510e374',
+// 	'dbdriver' => 'mysqli',
+// 	'dbprefix' => '',
+// 	'pconnect' => FALSE,
+// 	'db_debug' => TRUE,
+// 	'cache_on' => FALSE,
+// 	'cachedir' => '',
+// 	'char_set' => 'utf8',
+// 	'dbcollat' => 'utf8_general_ci',
+// 	'swap_pre' => '',
+// 	'encrypt' => FALSE,
+// 	'compress' => FALSE,
+// 	'stricton' => FALSE,
+// 	'failover' => array(),
+// 	'save_queries' => TRUE
+// );
