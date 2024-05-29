@@ -67,10 +67,10 @@ $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'stajuliana_db',
+	'hostname' => 'eu-cluster-west-01.k8s.cleardb.net',
+	'username' => 'b9833f4ee443db',
+	'password' => '9ea896f3',
+	'database' => 'heroku_51185cac510e374',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
