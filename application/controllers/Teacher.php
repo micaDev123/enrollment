@@ -60,6 +60,22 @@ class Teacher extends CI_Controller {
         }
 
 
+        function student_information(){
+
+            $page_data['page_name']     = 'student_information';
+            $page_data['page_title']    = get_phrase('List Student');
+            $this->load->view('backend/index', $page_data);
+        }
+    
+    
+        /**************************  search student function with ajax starts here   ***********************************/
+        function getStudentClasswise($section_id){
+    
+            $page_data['section_id'] = $section_id;
+            $this->load->view('backend/teacher/showStudentClasswise', $page_data);
+        }
+        /**************************  search student function with ajax ends here   ***********************************/
+
 
         function manage_attendance($date = null, $month= null, $year = null, $class_id = null, $section_id = null ){
             $active_sms_gateway = $this->db->get_where('sms_settings', array('type' => 'active_sms_gateway'))->row()->info;

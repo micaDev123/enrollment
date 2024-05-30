@@ -66,31 +66,26 @@
                 </a>
             </li>
 
+
+
+
      
                  </ul>
         </li>
 
-    <li class="attendance"> <a href="#" ><i data-icon="&#xe006;" class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('manage_attendance');?><span class="fa arrow"></span></span></a>
+    <li class="attendance"> <a href="#" ><i data-icon="&#xe006;" class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('manage_class');?><span class="fa arrow"></span></span></a>
         
         <ul class=" nav nav-second-level<?php
-            if ($page_name == 'manage_attendance' || $page_name == 'staff_attendance' ||
+            if ($page_name == 'manage_student' || $page_name == 'staff_attendance' ||
                 $page_name == 'attendance_report')
             echo 'opened active';
             ?>">
-                    
+                
 
-                <li class="<?php if ($page_name == 'manage_attendance') echo 'active'; ?> ">
-                    <a href="<?php echo base_url(); ?>teacher/manage_attendance/<?php echo date("d/m/Y"); ?>">
+                <li class="<?php if ($page_name == 'manage_student') echo 'active'; ?> ">
+                    <a href="<?php echo base_url(); ?>teacher/student_information">
                     <i class="fa fa-angle-double-right p-r-10"></i>
-                        <span class="hide-menu"><?php echo get_phrase('mark_attendance'); ?></span>
-                    </a>
-                </li>
-
-
-                <li class="<?php if ($page_name == 'attendance_report') echo 'active'; ?> ">
-                    <a href="<?php echo base_url(); ?>teacher/attendance_report">
-                    <i class="fa fa-angle-double-right p-r-10"></i>
-                        <span class="hide-menu"><?php echo get_phrase('view_attendance'); ?></span>
+                        <span class="hide-menu"><?php echo get_phrase('class_list'); ?></span>
                     </a>
                 </li>
 
