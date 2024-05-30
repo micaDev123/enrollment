@@ -53,7 +53,7 @@
             return false;
         }
 			$.ajax({
-				url: '<?php echo site_url('admin/getStudentClasswise/');?>' + section_id
+				url: '<?php echo site_url('teacher/getStudentClasswise/');?>' + section_id
 			}).done(function(response) {
 				$('#data').html(response);
 			});
