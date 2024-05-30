@@ -8,8 +8,8 @@
 <meta name="author" content="OPTIMUM LINKUP COMPUTERS">
 
   <!-- Favicons -->
-  <link href="public/assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="<?php echo base_url(); ?>assets/images/favicon.png" rel="icon">
+  <link href="<?php echo base_url(); ?>assets/images/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,14 +17,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="public/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="public/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="public/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="public/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="public/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>assets/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="public/assets/css/main.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>assets/css/main.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Impact
@@ -55,7 +55,7 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <!-- <images src="assets/images/logo.png" alt=""> -->
         <h1>STA.<span>JULIANA HIGH SCHOOL</span></h1>
       </a>
       <nav id="navbar" class="navbar">
@@ -85,11 +85,11 @@
           </p>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#about" class="btn-get-started">Get Started</a>
-            <a href="assets/video/stajuliana.mp4" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+            <a href="<?php echo base_url(); ?>assets/video/stajuliana.mp4" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2">
-          <img src="public/assets/picc.png" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100">
+          <img src="<?php echo base_url(); ?>assets/picc.png" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100">
         </div>
       </div>
     </div>
@@ -141,7 +141,7 @@
 
         <div class="row gy-4">
           <div class="col-lg-6">
-            <img src="assets/img/aboutjuliana.jpg" class="img-fluid rounded-4 mb-4" alt="">
+            <img src="<?php echo base_url(); ?>assets/images/aboutjuliana.jpg" class="img-fluid rounded-4 mb-4" alt="">
             </div>
 
           <div class="col-lg-6">
@@ -320,7 +320,7 @@
             <article>
 
               <div class="post-img">
-                <img src="assets/img/baon.jpg" alt="" class="img-fluid">
+                <img src="<?php echo base_url(); ?>assets/images/baon.jpg" alt="" class="img-fluid">
               </div>
 
               <p class="post-category">Distribution of Baon Packages</p>
@@ -345,7 +345,7 @@
             <article>
 
               <div class="post-img">
-                <img src="assets/img/sports.jpg" alt="" class="img-fluid">
+                <img src="assets/images/sports.jpg" alt="" class="img-fluid">
               </div>
 
               <p class="post-category">Donation of Sport Equipments.</p>
@@ -370,7 +370,7 @@
             <article>
 
               <div class="post-img">
-                <img src="assets/img/sjsports.jpg" alt="" class="img-fluid">
+                <img src="assets/images/sjsports.jpg" alt="" class="img-fluid">
               </div>
 
               <p class="post-category">Sports</p>
@@ -537,16 +537,16 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  <script src="public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="public/assets/vendor/aos/aos.js"></script>
-  <script src="public/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="public/assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="public/assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="public/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="public/assets/vendor/php-email-form/validate.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/aos/aos.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="public/assets/js/main.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
 
 </body>
 
