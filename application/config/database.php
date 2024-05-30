@@ -90,10 +90,10 @@ $db['default'] = array(
 
 // $db['default'] = array(
 // 	'dsn'	=> '',
-// 	'hostname' => 'eu-cluster-west-01.k8s.cleardb.net',
-// 	'username' => 'b9833f4ee443db',
-// 	'password' => '9ea896f3',
-// 	'database' => 'heroku_51185cac510e374',
+// 	'hostname' => 'localhost',
+// 	'username' => 'root',
+// 	'password' => '',
+// 	'database' => 'stajuliana_db',
 // 	'dbdriver' => 'mysqli',
 // 	'dbprefix' => '',
 // 	'pconnect' => FALSE,

@@ -112,25 +112,10 @@ class Student_model extends CI_Model {
         );
         
   
-    // $this->db->insert('student', $page_data);
-    // $student_id = $this->db->insert_id();
-    // move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/student_image/' . $student_id . '.jpg');			// image with user ID
-    // $student_array['file_name'] = $_FILES["file_name"]["name"];
-    $student_array['email'] = html_escape($this->input->post('email'));
-    // $teacher_array['bank_id'] = $bank_id;
-    $check_email = $this->db->get_where('student', array('email' => $student_array['email']))->row()->email;	// checking if email exists in database
-    if($check_email != null) 
-        {
-            $this->session->set_flashdata('error_message', get_phrase('email_already_exist'));
-            redirect(base_url() . 'admin/new_student/', 'refresh');
-        }
-            else
-        {
-            $this->db->insert('student', $student_array);
-            $student_id = $this->db->insert_id();
+    $this->db->insert('student', $page_data);
+    $student_id = $this->db->insert_id();
+    move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/student_image/' . $student_id . '.jpg');			// image with user ID
 
-            move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/student_image/' . $student_id . '.jpg');			// image with user ID
-        }
     }
 
     //the function below update student
