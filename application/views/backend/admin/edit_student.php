@@ -32,7 +32,7 @@
 							<input type="text" class="form-control" value="<?php echo $student['name'];?>" name="name" required autofocus>
 						</div>
 					</div>
-
+<!-- 
 					<div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('parent');?></label>
                     <div class="col-sm-12">
@@ -52,9 +52,9 @@
 						 	<a href="<?php echo base_url();?>admin/parent/"><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-plus"></i></button></a>
 
 						</div> 
-						</div>
+						</div> -->
 					
-					<div class="form-group">
+					<!-- <div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('class');?></label>
                     <div class="col-sm-12">
 							<select name="class_id" class="form-control select2" style="width:100%"id="class_id" 
@@ -76,7 +76,7 @@
 
 
 						</div> 
-					</div>
+					</div> -->
 
 					<div class="form-group">
                  	<label class="col-md-9" for="example-text"><?php echo get_phrase('section');?></label>
@@ -123,12 +123,12 @@
 						</div> 
 					</div>
 					
-					<div class="form-group">
+					<!-- <div class="form-group">
                  	<label class="col-md-9" for="example-text"><?php echo get_phrase('mother_tongue');?></label>
                     <div class="col-sm-12">
 							<input type="text" class="form-control" value="<?php echo $student['m_tongue'];?>" name="m_tongue" value="" >
 						</div> 
-					</div>
+					</div> -->
 					
 					<div class="form-group">
                  	<label class="col-md-9" for="example-text"><?php echo get_phrase('religion');?></label>
@@ -159,7 +159,7 @@
 						</div> 
 					</div>
 					
-					<div class="form-group">
+					<!-- <div class="form-group">
                  		<label class="col-md-12" for="example-text"><?php echo get_phrase('Student House');?></label>
                     	<div class="col-sm-12">
 							<select name="house_id" class="form-control select2" style="width:100%" required>
@@ -177,9 +177,9 @@
                           </select>
 						 	<a href="<?php echo base_url();?>studenthouse/studentHouse/"><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-plus"></i></button></a>
 						</div> 
-					</div>
+					</div> -->
 						
-				<div class="form-group">
+				<!-- <div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('Student Club');?></label>
                     <div class="col-sm-12">
 							<select name="club_id" class="form-control select2" style="width:100%" required>
@@ -198,7 +198,7 @@
 							<a href="<?php echo base_url();?>admin/club/"><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-plus"></i></button></a>
 
 						</div> 
-					</div>
+					</div> -->
 			</div>
 					
 					
@@ -233,9 +233,21 @@
 							<input type="text" class="form-control" value="<?php echo $student['email'];?>" name="email" value="" required>
 						</div>
 					</div>
+
+					<div class="form-group">
+                 	<label class="col-md-9" for="example-text"><?php echo get_phrase('birth_certificate');?></label>
+                    <div class="col-sm-12">
+							<select name="dob_cert" class="form-control select2" style="width:100%">
+                              <option value=""><?php echo get_phrase('select');?></option>
+                              
+							<option value="Yes"<?php if($student['dob_cert']== 'Yes') echo 'selected';?>>Yes</option>
+                            <option value="No"<?php if($student['dob_cert']== 'No') echo 'selected';?>>No</option> 
+                          </select>
+						</div> 
+					</div>
 					
 
-						<div class="form-group">
+						<!-- <div class="form-group">
                  	<label class="col-md-9" for="example-text"><?php echo get_phrase('previous_school_name');?></label>
                     <div class="col-sm-12">
 							<input type="text" class="form-control" value="<?php echo $student['ps_attended'];?>" name="ps_attended" data-validate="required" value="" autofocus>
@@ -326,9 +338,9 @@
                             <option value="No"<?php if($student['physical_h']== 'No') echo 'selected';?>>No</option> 
                           </select>
 						</div> 
-					</div>
+					</div> -->
 
-						<div class="form-group">
+						<!-- <div class="form-group">
                  	<label class="col-md-9" for="example-text"><?php echo get_phrase('dormitory');?></label>
                     <div class="col-sm-12">
 							<select name="dormitory_id" class="form-control select2" style="width:100%">
@@ -342,10 +354,10 @@
                           </select>
 						  <a href="<?php echo base_url();?>admin/dormitory/"><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-plus"></i></button></a>
 						</div> 
-					</div>
+					</div> -->
 
 
-	<div class="form-group">
+	<!-- <div class="form-group">
                  	<label class="col-md-9" for="example-text"><?php echo get_phrase('transport_route');?></label>
                     <div class="col-sm-12">
 							<select name="transport_id" class="form-control select2" style="width:100%">
@@ -360,9 +372,9 @@
 	<a href="<?php echo base_url();?>admin/transport/"><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-plus"></i></button></a>
 
 						</div> 
-					</div>
+					</div> -->
 					
-					
+<!-- 					
 					<div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('Student Category');?></label>
                     <div class="col-sm-12">
@@ -382,7 +394,7 @@
 						 	<a href="<?php echo base_url();?>studentcategory/studentCategory/"><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-plus"></i></button></a>
 
 						</div> 
-						</div>
+						</div> -->
 
 					
 					</div>

@@ -219,7 +219,7 @@
 
 
     <!---  Permission for Admin Manage Attendance starts here ------>
-    <?php $check_admin_permission = $this->db->get_where('admin_role', array('admin_id' => $this->session->userdata('login_user_id')))->row()->manage_attendance;?>
+    <!-- <?php $check_admin_permission = $this->db->get_where('admin_role', array('admin_id' => $this->session->userdata('login_user_id')))->row()->manage_attendance;?>
     <?php if($check_admin_permission == '1'):?> 
 
         <li class="attendance"> <a href="#" ><i data-icon="&#xe006;" class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('attendance');?><span class="fa arrow"></span></span></a>
@@ -246,7 +246,7 @@
                 
                  </ul>
                 </li>
-            <?php endif;?> 
+            <?php endif;?>  -->
             
             <!---  Permission for Admin Manage Attendance ends here ------>
                 
@@ -320,13 +320,13 @@
             ?>">
 
 
-                        
+<!--                         
                         <li class="<?php if ($page_name == 'class') echo 'active'; ?> ">
                         <a href="<?php echo base_url(); ?>admin/classes">
                         <i class="fa fa-angle-double-right p-r-10"></i>
                            <span class="hide-menu"><?php echo get_phrase('class_list'); ?></span>
                         </a>
-                    </li>
+                    </li> -->
 
 
                     <li class="<?php if ($page_name == 'section') echo 'active'; ?> ">
@@ -357,22 +357,22 @@
          <li> <a href="#" ><i data-icon="&#xe006;" class="fa fa-medkit p-r-10"></i> <span class="hide-menu">
         <?php echo get_phrase('Enrollment');?><span class="fa arrow"></span></span></a>
         <ul class=" nav nav-second-level<?php
-        if ($page_name == 'studentEnrollment' ||$page_name == 'classScheduling' ) echo 'opened active';
+        if ($page_name == 'studentEnrollment') echo 'opened active';
         ?>">
                     
     
                     <li class="<?php if ($page_name == 'studentEnrollment') echo 'active'; ?> ">
                         <a href="<?php echo base_url(); ?>admin/studentEnrollment">
                         <i class="fa fa-angle-double-right p-r-10"></i>
-                           <span class="hide-menu"><?php echo get_phrase('Enrollment List'); ?></span>
+                           <span class="hide-menu"><?php echo get_phrase('List of Enrollees'); ?></span>
                         </a>
                     </li>
-                    <li class="<?php if ($page_name == 'classScheduling') echo 'active'; ?> ">
+                    <!-- <li class="<?php if ($page_name == 'classScheduling') echo 'active'; ?> ">
                         <a href="<?php echo base_url(); ?>admin/classScheduling">
                         <i class="fa fa-angle-double-right p-r-10"></i>
                            <span class="hide-menu"><?php echo get_phrase('class_scheduling'); ?></span>
                         </a>
-                    </li>
+                    </li> -->
 
                     <!-- <li class="<?php if ($page_name == 'grade') echo 'active'; ?> ">
                         <a href="<?php echo base_url(); ?>admin/grade">
