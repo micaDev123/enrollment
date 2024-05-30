@@ -1,16 +1,14 @@
-<!DOCTYPE html>
+<!DOCTYPE html>  
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Sta. Juliana High School</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="We ddevelop creative software, eye catching software. We also train to become a creative thinker">
+<meta name="author" content="OPTIMUM LINKUP COMPUTERS">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="public/assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
