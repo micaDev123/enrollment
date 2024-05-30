@@ -750,29 +750,11 @@ class Admin extends CI_Controller {
 
 
     /***********  The function below add, update and delete examination table ***********************/
-    function classScheduling ($param1 = null, $param2 = null, $param3 = null){
+    function get_subject($description_id = null){
 
-        if($param1 == 'create'){
-            $this->exam_model->createExamination();
-            $this->session->set_flashdata('flash_message', get_phrase('Data saved successfully'));
-            redirect(base_url(). 'admin/classScheduling', 'refresh');
-        }
-
-        if($param1 == 'update'){
-            $this->exam_model->updateExamination($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
-            redirect(base_url(). 'admin/classScheduling', 'refresh');
-        }
-
-        if($param1 == 'delete'){
-            $this->exam_model->deleteExamination($param2);
-            $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
-            redirect(base_url(). 'admin/classScheduling', 'refresh');
-        }
-
-        $page_data['page_name']     = 'classScheduling';
-        $page_data['page_title']    = get_phrase('Class Schedule');
-        $this->load->view('backend/index', $page_data);
+        $description_id = $this->db->get_where('subject', array('description_id' => $description_id))->result_array();
+        foreach($description_id as $key => $row)
+        echo '<option value="'.$row['subject_id'].'">' . $row['description'] . '</option>';
     }
     /***********  The function below add, update and delete examination table ends here ***********************/
 

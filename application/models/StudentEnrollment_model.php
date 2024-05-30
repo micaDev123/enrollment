@@ -74,8 +74,16 @@ class StudentEnrollment_model extends CI_Model {
 
     // The function below delete from exam question table //
     function deleteexamQuestion($param2){
-        $this->db->where('enrollment_id', $param2);
-        $this->db->delete('enrollment');
+
+    $this->db->where('enrollment_id', $param2);
+    
+    $id = $this->db->delete('enrollment');
+
+    if($id) {
+        $this->db->delete('student', 'section_id');
+    }
+
+
     }
 }
 

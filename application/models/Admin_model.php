@@ -40,14 +40,13 @@ class Admin_model extends CI_Model {
 
     function updateAllDetailsForAdminRole($param2){
         $page_data['dashboard']  = html_escape($this->input->post('dashboard'));
-        $page_data['manage_academics']  = html_escape($this->input->post('manage_academics'));
+        $page_data['manage_subject']  = html_escape($this->input->post('manage_subject'));
         $page_data['manage_employee']   = html_escape($this->input->post('manage_employee'));
         $page_data['manage_student']    = html_escape($this->input->post('manage_student'));
-        $page_data['manage_attendance']     = html_escape($this->input->post('manage_attendance'));
-        $page_data['download_page']     = html_escape($this->input->post('download_page'));
-        $page_data['manage_parent']     = html_escape($this->input->post('manage_parent'));
-        $page_data['manage_alumni']     = html_escape($this->input->post('manage_alumni'));
-
+        $page_data['manage_class']     = html_escape($this->input->post('manage_class'));
+        $page_data['manage_enrollment']     = html_escape($this->input->post('manage_enrollment'));
+        // $page_data['manage_parent']     = html_escape($this->input->post('manage_parent'));
+        $page_data['manage_subject']     = html_escape($this->input->post('manage_subject'));
         $this->db->where('admin_id', $param2);
         $this->db->update('admin_role', $page_data);
 

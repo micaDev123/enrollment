@@ -2,10 +2,10 @@
 
 $selecting_id_from_admin_table = array('admin_id' => $this->session->userdata('login_user_id'), 
 'dashboard' => '1', 
-'manage_academics' => '1', 'manage_employee' => '1', 
-'manage_student' => '1', 'manage_attendance' => '1', 
-'download_page' => '1', 'manage_parent' => '1', 
-'manage_alumni' => '1'); 
+'manage_employee' => '1', 'manage_employee' => '1', 
+'manage_student' => '1', 'manage_enrollment' => '1', 
+'manage_class' => '1',
+'manage_subject' => '1'); 
 $query_admin_role_table = $this->db->get_where('admin_role', $selecting_id_from_admin_table);
 
 if($query_admin_role_table->num_rows() < 1)
