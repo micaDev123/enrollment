@@ -104,7 +104,7 @@
                     foreach($sections as $key => $sections):?>         
                         <tr>
                             <td><?php echo $counter++;?></td>
-							<td><?php echo $sections['name'];?></td>
+							<td><?php echo $sections['section_name'];?></td>
 							<td><?php echo $sections['nick_name'];?></td>
                             <td><?php echo $this->crud_model->get_type_name_by_id('teacher', $sections['teacher_id']);?></td>
 							<td>

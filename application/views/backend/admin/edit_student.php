@@ -29,7 +29,7 @@
 						<div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('full_name');?></label>
                     <div class="col-sm-12">
-							<input type="text" class="form-control" value="<?php echo $student['name'];?>" name="name" required autofocus>
+							<input type="text" class="form-control" value="<?php echo $student['full_name'];?>" name="full_name" required autofocus>
 						</div>
 					</div>
 <!-- 
@@ -54,12 +54,12 @@
 						</div> 
 						</div> -->
 					
-					<!-- <div class="form-group">
+						<div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('class');?></label>
                     <div class="col-sm-12">
 							<select name="class_id" class="form-control select2" style="width:100%"id="class_id" 
 								data-message-required="<?php echo get_phrase('value_required');?>"
-									onchange="return get_class_sections(this.value)">
+									onchange="return get_class_section(this.value)">
                               <option value=""><?php echo get_phrase('select');?></option>
                               <?php 
 								$classes = $this->db->get('class')->result_array();
@@ -76,14 +76,33 @@
 
 
 						</div> 
-					</div> -->
+					</div>
+
+					<!-- <div class="form-group">
+                 	<label class="col-md-9" for="example-text"><?php echo get_phrase('section');?></label>
+                    <div class="col-sm-12">
+		                        <select name="section_id" class="form-control select2" style="width:100%" id="section_selector_holder">
+		                            <option value=""><?php echo get_phrase('select_class_first');?></option>
+			                        
+			                    </select>
+	                            <a href="<?php echo base_url();?>admin/section/"><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-plus"></i></button></a>
+			                </div>
+					</div>		 -->
 
 					<div class="form-group">
                  	<label class="col-md-9" for="example-text"><?php echo get_phrase('section');?></label>
                     <div class="col-sm-12">
 		                        <select name="section_id" class="form-control select2" style="width:100%" id="section_selector_holder">
 		                            <option value=""><?php echo get_phrase('select_class_first');?></option>
-			                        
+			                        <?php $section =  $this->db->get('section')->result_array();
+									foreach($section as $key => $section):?>
+									<!-- <option value="<?php echo $section['section_id'];?>"><?php echo $section['section_name'];?></option> -->
+									<option value="<?php echo $section['section_id'];?>"<?php if($section['section_id'] == $section['section_id']) echo 'selected';?>>
+											<?php echo $class['section_name'];?></option>
+									<?php endforeach;?>
+
+									
+								</select>
 			                    </select>
 	                            <a href="<?php echo base_url();?>admin/section/"><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-plus"></i></button></a>
 			                </div>

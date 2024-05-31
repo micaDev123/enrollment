@@ -18,7 +18,7 @@
 				<div class="form-group">
 					<label class="col-md-12" for="example-text"><?php echo get_phrase('Name');?></label>
 					<div class="col-sm-12">
-						<input type="text" class="form-control" name="name" value="<?php echo $row['name'];?>">
+						<input type="text" class="form-control" name="full_name" value="<?php echo $row['full_name'];?>">
 					</div>
 				</div>
 

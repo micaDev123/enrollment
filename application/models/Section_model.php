@@ -13,7 +13,7 @@ class Section_model extends CI_Model {
     function createSectionFunction(){
 
         $page_data = array(
-            'name'          => html_escape($this->input->post('name')),
+            'section_name'          => html_escape($this->input->post('section_name')),
             'nick_name'     => html_escape($this->input->post('nick_name')),
             'class_id'      => html_escape($this->input->post('class_id')),
             'teacher_id'    => html_escape($this->input->post('teacher_id'))
@@ -25,7 +25,7 @@ class Section_model extends CI_Model {
 // The function below update section table //
     function updateSectionFunction($param2){
         $page_data = array(
-            'name'          => html_escape($this->input->post('name')),
+            'section_name'          => html_escape($this->input->post('section_name')),
             'nick_name'     => html_escape($this->input->post('nick_name')),
             'class_id'      => html_escape($this->input->post('class_id')),
             'teacher_id'    => html_escape($this->input->post('teacher_id'))

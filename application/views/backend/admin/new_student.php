@@ -31,7 +31,7 @@
 						<div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('full_name');?></label>
                     <div class="col-sm-12">
-							<input type="text" class="form-control" name="name" required autofocus>
+							<input type="text" class="form-control" name="full_name" required autofocus>
 						</div>
 					</div>
 
@@ -56,7 +56,7 @@
 						</div> 
 						</div> -->
 					
-					<!-- <div class="form-group">
+					<div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('class');?></label>
                     <div class="col-sm-12">
 							<select name="class_id" class="form-control select2" style="width:100%"id="class_id" 
@@ -78,7 +78,7 @@
 
 
 						</div> 
-					</div> -->
+					</div>
 
 					<div class="form-group">
                  	<label class="col-md-9" for="example-text"><?php echo get_phrase('section');?></label>
