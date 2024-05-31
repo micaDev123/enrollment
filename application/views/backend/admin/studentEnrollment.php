@@ -26,7 +26,7 @@
 
                            <?php $student =  $this->db->get('student')->result_array();
                                     foreach($student as $key => $student):?>         	
-                                    		<option value="<?php echo $student['student_id'];?>"><?php echo $student['full_name'];?></option>
+                                    		<option value="<?php echo $student['student_id'];?>"><?php echo $student['name'];?></option>
                             <?php endforeach;?>
                         </select>              
                     </div> 
@@ -257,7 +257,7 @@
 
               
                 </td>
-                <td><?php echo $this->db->get_where('student', array('student_id' => $exam_question['student_id']))->row()->full_name;?></td>
+                <td><?php echo $this->db->get_where('student', array('student_id' => $exam_question['student_id']))->row()->name;?></td>
                 <td><?php echo $this->db->get_where('class', array('class_id' => $exam_question['class_id']))->row()->name;?></td>
                 <td><?php echo $exam_question['date_of_enrollment'];?></td> 
                 <td><?php echo $exam_question['grade_level'];?></td>
