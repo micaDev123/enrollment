@@ -10,9 +10,14 @@ class Api extends CI_Controller
     }
 
 
-    function get_subjects()
+   function get_subjects($student_id)
     {
-        $subject = $this->db->get('subject')->result_array();
+        //$subject = $this->db->get('subject')->result_array();
+        $this->db->select('subject.*');
+        $this->db->from('student');
+        $this->db->join('subject', 'student.class_id  = subject.class_id ');
+        $this->db->where('student.student_id', $student_id );
+        $subject = $this->db->get()->result_array();
         $this->toJson($subject);
     }
 
