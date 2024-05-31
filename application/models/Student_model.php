@@ -53,7 +53,7 @@ class Student_model extends CI_Model {
 // The function below update student category //
     function updatestudentCategory($param2){
         $page_data = array(
-            'full_name'        => html_escape($this->input->post('name')),
+            'name'        => html_escape($this->input->post('name')),
             'description' => html_escape($this->input->post('description'))
 	    );
 
@@ -118,6 +118,7 @@ class Student_model extends CI_Model {
 
     }
 
+
     //the function below update student
     function updateNewStudent($param2){
         $page_data = array(
@@ -154,8 +155,7 @@ class Student_model extends CI_Model {
             // 'dormitory_id'    => html_escape($this->input->post('dormitory_id')),
             // 'house_id'        => html_escape($this->input->post('house_id')),
             // 'student_category_id' => html_escape($this->input->post('student_category_id')),
-            // 'club_id'             => html_escape($this->input->post('club_id')),
-            'session'             => html_escape($this->input->post('session'))
+            'club_id'             => html_escape($this->input->post('club_id')),
 	    );
         $this->db->where('student_id', $param2);
         $this->db->update('student', $page_data);
@@ -169,14 +169,10 @@ class Student_model extends CI_Model {
         $this->db->delete('student');
     }
 
-    function createNewEnrollees() {
+	
 
 
-        $page_data = array(
-            'name'          => html_escape($this->input->post('name')),
-            
-            'session'             => html_escape($this->input->post('session'))
-        );
-
-    }
+	
+	
 }
+

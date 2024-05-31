@@ -10,7 +10,6 @@
                     		<th><div><?php echo get_phrase('sex');?></div></th>
                             <th><div><?php echo get_phrase('email');?></div></th>
                             <th><div><?php echo get_phrase('phone');?></div></th>
-                            <th><div><?php echo get_phrase('parent');?></div></th>
                     		<th><div><?php echo get_phrase('actions');?></div></th>
 						</tr>
 					</thead>
@@ -27,7 +26,6 @@
 							<td><?php echo $student['sex'];?></td>
                             <td><?php echo $student['email'];?></td>
                             <td><?php echo $student['phone'];?></td>
-                            <td><?php echo $this->crud_model->get_type_name_by_id('parent', $student['parent_id']);?></td>
 							<td>
 							
 				     <a href="<?php echo base_url();?>admin/edit_student/<?php echo $student['student_id'];?>" ><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-pencil"></i></button></a>
