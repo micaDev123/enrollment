@@ -83,6 +83,38 @@
         </ul>
     </li>
     <?php endif;?>
+
+    <li> <a href="#" ><i data-icon="&#xe006;" class="fa fa-university p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('class');?> & <?php echo get_phrase('section');?><span class="fa arrow"></span></span></a>
+        
+        <ul class=" nav nav-second-level<?php
+        if ($page_name == 'class' ||
+                $page_name == 'section' ||
+                $page_name == 'class_routine')
+            echo 'opened active';
+        ?>">
+
+
+                    
+                     <li class="<?php if ($page_name == 'class') echo 'active'; ?> ">
+                    <a href="<?php echo base_url(); ?>admin/classes">
+                    <i class="fa fa-angle-double-right p-r-10"></i>
+                       <span class="hide-menu"><?php echo get_phrase('manage_classes'); ?></span>
+                    </a>
+                </li>
+
+
+                <li class="<?php if ($page_name == 'section') echo 'active'; ?> ">
+                    <a href="<?php echo base_url(); ?>admin/section">
+                    <i class="fa fa-angle-double-right p-r-10"></i>
+                        <span class="hide-menu"><?php echo get_phrase('manage_sections'); ?></span>
+                    </a>
+                </li>   
+                
+      
+         
+       
+             </ul>
+            </li>
                    
 
 

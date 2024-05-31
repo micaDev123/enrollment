@@ -18,7 +18,7 @@
                     </div> -->
 
                     <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('your_name');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Student Name');?></label>
                     <div class="col-sm-12">
                        
 					   <select name="student_id" class="form-control select2" style="width:100%;" required>
@@ -83,10 +83,42 @@
                 </div>
 
 
+
+                <!-- <div class="form-group">
+                <label class="col-sm-12"><?php echo get_phrase('select_grade_level'); ?></label>
+
+                <div class="col-sm-12">
+                <select name="section_id" class="form-control select2" onchange="subjectOnkeyUp(this.value)" required>
+                <option value=""><?php echo get_phrase('select_grade'); ?></option>
+                <?php
+                $gradeLevel = $this->db->get('section')->result_array();
+                foreach ($gradeLevel as $row): ?>
+                <option value="<?php echo $row['description_id']; ?>">
+                <?php echo $row['grade_level']; ?>
+                </option>
+                <?php endforeach; ?>
+                </select>
+                </div> 
+                </div>
+
+                <div class="form-group">
+                <label class="col-sm-12"><?php echo get_phrase('Subject'); ?></label>
+
+                <div class="col-sm-12">
+                <select name="subject_id" class="form-control select2" id="subject_holder">
+                <option value=""><?php echo get_phrase('select_grade_first'); ?></option>
+                </select>
+                </div> 
+                </div> -->
+
+
+
+
+
+
                 <div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('file_type');?></label>
                     <div class="col-sm-12">
-                       
 					   <select name="file_type" class="form-control select2" style="width:100%;" required>
 										<option value=""><?php echo get_phrase('file_type');?></option>
 
@@ -123,14 +155,31 @@
 						
                     </div> 
                 </div>
-
+<!-- 
                 <div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('Add Subject');?></label>
                     <div class="col-sm-12">
-                 	<input type="checkbox" name="subject" required>
+                    <input type="checkbox" name="subject" required>
+                    <?php $student =  $this->db->get('subject')->result_array();
+                                    foreach($subject as $key => $subject):?>
+                                    <input type="checkbox" onclick="toggle(this);" />Check all?<br />         
+                                    <input type="checkbox" value="<?php echo $section['section_name'];?>" required>
+                            <?php endforeach;?>
+
+                            <?php $section =  $this->db->get('section')->result_array();
+                    foreach($section as $key => $section):?>
+                    <option value="<?php echo $section['section_id'];?>">
+                    <?php echo $section['section_name'];?></option>
+                    <?php endforeach;?>
+                   </select>
+               
 				   
                     </div>
-                </div>
+                </div> -->
+
+
+
+ 
 				
 				
 				<!-- <div class="form-group">
@@ -263,5 +312,19 @@ function get_class_subject(class_id){
 
     });
 }
+
+function subjectOnkeyUp(description_id) {
+        if(description_id != '')
+            $.ajax({
+                url: '<?php echo base_url();?>admin/get_subject/' + description_id,
+                success: function(response)
+                {
+                    console.log(response);
+                    jQuery('#subject_holder').html(response);
+                }
+            });
+        else
+            jQuery('#subject_holder').html('<option value=""><?php echo get_phrase("select_grade_first"); ?></option>');
+    }
 
 </script>

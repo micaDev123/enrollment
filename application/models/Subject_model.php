@@ -10,25 +10,12 @@ class Subject_model extends CI_Model {
 
 
     // The function below insert into subject table //
-    function createScheduleSubjectFunction(){
-
-        $page_data = array(
-            'description'   => html_escape($this->input->post('name')),
-            'class_id'      => html_escape($this->input->post('class_id')),
-            'teacher_id'    => html_escape($this->input->post('teacher_id'))
-	    );
-
-        $this->db->insert('subject', $page_data);
-    }
-
-
     function createSubjectFunction(){
 
         $page_data = array(
-            'subject_code'  => html_escape($this->input->post('subject_code')),
-            'description'   => html_escape($this->input->post('description')),
-            // 'class_id'      => html_escape($this->input->post('class_id')),
-            // 'teacher_id'    => html_escape($this->input->post('teacher_id'))
+            'name'          => html_escape($this->input->post('name')),
+            'class_id'      => html_escape($this->input->post('class_id')),
+            'teacher_id'    => html_escape($this->input->post('teacher_id'))
 	    );
 
         $this->db->insert('subject', $page_data);

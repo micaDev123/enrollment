@@ -9,10 +9,10 @@
                     <select id="section_id" class="form-control">
                     <option value=""><?php echo get_phrase('select_section');?></option>
 
-                    <?php $section =  $this->db->get('section')->result_array();
-                    foreach($section as $key => $section):?>
-                    <option value="<?php echo $section['section_id'];?>"
-                    <?php if($section_id == $section['section_id']) echo 'selected';?>><?php echo $section['section_name'];?></option>
+                    <?php $class =  $this->db->get('class')->result_array();
+                    foreach($class as $key => $class):?>
+                    <option value="<?php echo $class['class_id'];?>"
+                    <?php if($class_id == $class['class_id']) echo 'selected';?>><?php echo $class['name'];?></option>
                     <?php endforeach;?>
                    </select>
 

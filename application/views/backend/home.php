@@ -108,14 +108,14 @@
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-geo-alt"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Teachers Login</a></h4>
+              <h4 class="title"><a href="#" class="stretched-link">Teachers Login</a></h4>
             </div>
           </div><!--End Icon Box -->
 
           <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-command"></i></div>
-              <h4 class="title"><a href="" class="stretched-link">Admin Login</a></h4>
+              <h4 class="title"><a href="#" class="stretched-link">Admin Login</a></h4>
             </div>
           </div><!--End Icon Box -->
 

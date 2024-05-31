@@ -344,13 +344,13 @@ class Admin extends CI_Controller {
         $this->load->view('backend/index', $page_data);
     }
 
-        function sections ($section_id = null){
+        function sections ($class_id = null){
 
-            if($section_id == '')
-            $section_id = $this->db->get('section_id')->first_row()->section_id;
+            if($class_id == '')
+            $section_id = $this->db->get('class_id')->first_row()->section_id;
             
             $page_data['page_name']     = 'section';
-            $page_data['section_id']      = $section_id;
+            $page_data['class_id']      = $class_id;
             $page_data['page_title']    = get_phrase('Manage Section');
             $this->load->view('backend/index', $page_data);
 
@@ -570,9 +570,9 @@ class Admin extends CI_Controller {
 
 
     /**************************  search student function with ajax starts here   ***********************************/
-    function getStudentClasswise($section_id){
+    function getStudentClasswise($class_id){
 
-        $page_data['section_id'] = $section_id;
+        $page_data['class_id'] = $class_id;
         $this->load->view('backend/admin/showStudentClasswise', $page_data);
     }
     /**************************  search student function with ajax ends here   ***********************************/

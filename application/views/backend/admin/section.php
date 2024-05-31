@@ -8,31 +8,22 @@
 <!----CREATION FORM STARTS---->
 
                 	<?php echo form_open(base_url() . 'admin/section/create' , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top'));?>
-                <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('grade_level');?></labels>
+                            <div class="form-group">
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('name');?></label>
                     <div class="col-sm-12">
-                    <select name="grade_level" class="form-control select2" required>
-                    <option value=""><?php echo get_phrase('select_grade');?></option>
-                    <option value="7"><?php echo get_phrase('7');?></option>
-                    <option value="8"><?php echo get_phrase('8');?></option>
-                    <option value="9"><?php echo get_phrase('9');?></option>
-                    <option value="10"><?php echo get_phrase('10');?></option>
-                    <option value="11"><?php echo get_phrase('11');?></option>
-                    <option value="12"><?php echo get_phrase('12');?></option>
-                   </select>
-                                    <!-- <input type="text" class="form-control" name="name" / required> -->
+                                    <input type="text" class="form-control" name="name" / required>
                                 </div>
                             </div>
 
 								<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('section_name');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('nick_name');?></label>
                     <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="section_name"/ required>
+                                    <input type="text" class="form-control" name="nick_name"/ required>
                                 </div>
                             </div>
 
                     
-                    <!-- <div class="form-group">
+                    <div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('class');?></label>
                     <div class="col-sm-12">
                     <select name="class_id" class="form-control select2" required>
@@ -45,11 +36,11 @@
                    </select>
 
                   </div>
-                 </div> -->
+                 </div>
 
 								
 					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('adviser');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('teacher');?></label>
                     <div class="col-sm-12">
                     <select name="teacher_id" class="form-control select2" required>
                     <option value=""><?php echo get_phrase('select_teacher');?></option>
@@ -87,6 +78,11 @@
 
                         <li class="<?php if($classess['class_id']== $class_id) echo 'active';?>">
 
+                            <a class="btn btn-info btn-rounded btn-sm" href="<?php echo base_url();?>admin/sections/<?php echo $classess['class_id'];?>" style="color:white">
+
+                                <?php echo get_phrase('class');?>: <?php echo $classess['name'];?>
+                            </a>
+
                         </li>  
                         <?php endforeach;?>  
                         </ul>
@@ -96,20 +92,20 @@
                 	<thead>
                 		<tr>
                     		<th><div>#</div></th>
-                    		<th><div><?php echo get_phrase('grade_level');?></div></th>
-                    		<th><div><?php echo get_phrase('section_name');?></div></th>
+                    		<th><div><?php echo get_phrase('class_name');?></div></th>
+                    		<th><div><?php echo get_phrase('nick_name');?></div></th>
                     		<th><div><?php echo get_phrase('teacher');?></div></th>
                     		<th><div><?php echo get_phrase('options');?></div></th>
 						</tr>
 					</thead>
                     <tbody>
     
-                    <?php $counter = 1; $sections =  $this->db->get('section')->result_array();
+                    <?php $counter = 1; $sections =  $this->db->get_where('section', array('class_id' => $class_id))->result_array();
                     foreach($sections as $key => $sections):?>         
                         <tr>
                             <td><?php echo $counter++;?></td>
-							<td><?php echo $sections['grade_level'];?></td>
-							<td><?php echo $sections['section_name'];?></td>
+							<td><?php echo $sections['name'];?></td>
+							<td><?php echo $sections['nick_name'];?></td>
                             <td><?php echo $this->crud_model->get_type_name_by_id('teacher', $sections['teacher_id']);?></td>
 							<td>
 							
