@@ -32,10 +32,6 @@
                     </div> 
                 </div>
 
-
-                
-
-
                     <div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('Section');?></label>
                     <div class="col-sm-12">
@@ -262,7 +258,7 @@
               
                 </td>
                 <td><?php echo $this->db->get_where('student', array('student_id' => $exam_question['student_id']))->row()->full_name;?></td>
-                <td><?php echo $this->db->get_where('class', array('class_id' => $exam_question['class_id']))->row()->section_name;?></td>
+                <td><?php echo $this->db->get_where('class', array('class_id' => $exam_question['class_id']))->row()->name;?></td>
                 <td><?php echo $exam_question['date_of_enrollment'];?></td> 
                 <td><?php echo $exam_question['grade_level'];?></td>
                 <!-- <td><?php echo $this->db->get_where('teacher', array('teacher_id' => $exam_question['teacher_id']))->row()->name;?></td> -->

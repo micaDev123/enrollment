@@ -11,7 +11,7 @@ class StudentEnrollment_model extends CI_Model {
     // The function below inserts into exam question table //
     function createexamQuestion(){
         $page_data = array(
-            'student_id'                => html_escape($this->input->post('student_id')),
+            'student_id'                => $this->input->post('student_id'),
             'grade_level'               => html_escape($this->input->post('grade_level')),
             'section_id'                => $this->input->post('section_id'),
             // 'subject_id'                => html_escape($this->input->post('subject_id')),
@@ -49,10 +49,6 @@ class StudentEnrollment_model extends CI_Model {
 
             $s_section_id = $this->db->update('student', $section_id);
         }
-
-
-
-
     }
 
     // The function below updates exam question table //
