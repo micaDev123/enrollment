@@ -21,7 +21,7 @@
                             <td><?php echo $counter++;?></td>
                             <td><img src="<?php echo $this->crud_model->get_image_url('student', $student['student_id']);?>" class="img-circle" width="30"></td>
                             <td><?php echo $student['roll'];?></td>
-                            <td><?php echo $student['full_name'];?></td>
+                            <td><?php echo $student['name'];?></td>
                             <td><?php echo $this->crud_model->get_type_name_by_id('class', $student['class_id']);?></td>
 							<td><?php echo $student['sex'];?></td>
                             <td><?php echo $student['email'];?></td>
