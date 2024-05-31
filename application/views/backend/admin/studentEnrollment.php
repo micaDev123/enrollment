@@ -26,7 +26,7 @@
 
                            <?php $student =  $this->db->get('student')->result_array();
                                     foreach($student as $key => $student):?>         	
-                                    		<option value="<?php echo $student['student_id'];?>"><?php echo $student['name'];?></option>
+                                    		<option value="<?php echo $student['student_id'];?>"><?php echo $student['full_name'];?></option>
                             <?php endforeach;?>
                         </select>              
                     </div> 
@@ -42,10 +42,10 @@
                     <select name="section_id" id="section_id" class="form-control select2" onchange="return get_class_subject(this.value)">
                     <option value=""><?php echo get_phrase('select_section');?></option>
 
-                    <?php $section =  $this->db->get('section')->result_array();
+                    <?php $section =  $this->db->get('class')->result_array();
                     foreach($section as $key => $section):?>
-                    <option value="<?php echo $section['section_id'];?>">
-                    <?php echo $section['section_name'];?></option>
+                    <option value="<?php echo $section['class_id'];?>">
+                    <?php echo $section['name'];?></option>
                     <?php endforeach;?>
                    </select>
 
@@ -227,7 +227,7 @@
         <tr>
             <th>#</th>
             <th><?php echo get_phrase('file_type');?></th>
-            <th><?php echo get_phrase('Name');?></th>
+            <th><?php echo get_phrase('full_name');?></th>
             <th><?php echo get_phrase('Section');?></th>
             <th><?php echo get_phrase('date_enrolled');?></th>
             <th><?php echo get_phrase('Grade level');?></th>
@@ -261,8 +261,8 @@
 
               
                 </td>
-                <td><?php echo $this->db->get_where('student', array('student_id' => $exam_question['student_id']))->row()->name;?></td>
-                <td><?php echo $this->db->get_where('section', array('section_id' => $exam_question['section_id']))->row()->section_name;?></td>
+                <td><?php echo $this->db->get_where('student', array('student_id' => $exam_question['student_id']))->row()->full_name;?></td>
+                <td><?php echo $this->db->get_where('class', array('class_id' => $exam_question['class_id']))->row()->section_name;?></td>
                 <td><?php echo $exam_question['date_of_enrollment'];?></td> 
                 <td><?php echo $exam_question['grade_level'];?></td>
                 <!-- <td><?php echo $this->db->get_where('teacher', array('teacher_id' => $exam_question['teacher_id']))->row()->name;?></td> -->
