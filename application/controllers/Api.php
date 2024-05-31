@@ -19,7 +19,7 @@ class Api extends CI_Controller
     function get_student($id)
     {
         $where = array('student_id' => $id);
-        $student = $this->db->select("full_name, age, sex,address, birthday,email,phone")->get_where('student', $where)->result_array();
+        $student = $this->db->select("name, age, sex,address, birthday,email,phone")->get_where('student', $where)->result_array();
         $this->toJson($student);
     }
 
