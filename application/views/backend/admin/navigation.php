@@ -160,7 +160,8 @@
                     $page_name == 'student_class' ||
                     $page_name == 'student_information' ||
                     $page_name == 'view_student' ||
-                    $page_name == 'searchStudent')
+                    $page_name == 'searchStudent' ||
+                    $page_name == 'student_section')
                 echo 'opened active has-sub';
             ?> ">
 
@@ -179,6 +180,12 @@
                         <a href="<?php echo base_url(); ?>admin/student_information">
                         <i class="fa fa-angle-double-right p-r-10"></i>
                               <span class="hide-menu"><?php echo get_phrase('class_student'); ?></span>
+                        </a>
+                    </li>
+                    <li class="<?php if ($page_name == 'manage_class' || $page_name == 'student_information' || $page_name == 'view_student' || $page_name == 'student_information_section') echo 'active'; ?> ">
+                        <a href="<?php echo base_url(); ?>admin/student_information_section">
+                        <i class="fa fa-angle-double-right p-r-10"></i>
+                              <span class="hide-menu"><?php echo get_phrase('student_section'); ?></span>
                         </a>
                     </li>
         

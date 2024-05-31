@@ -23,7 +23,7 @@
                             </div>
 
 								
-								<div class="form-group">
+								<!-- <div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('teacher');?></label>
                     <div class="col-sm-12">
                     <select name="teacher_id" class="form-control select2" required>
@@ -36,7 +36,7 @@
                    </select>
 
                   </div>
-                 </div>
+                 </div> -->
                     <div class="form-group">
                     <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-book"></i>&nbsp;<?php echo get_phrase('add_class');?></button>
 					</div>
@@ -60,7 +60,6 @@
                     		<th><div>#</div></th>
                     		<th><div><?php echo get_phrase('class_name');?></div></th>
                     		<th><div><?php echo get_phrase('numeric_name');?></div></th>
-                    		<th><div><?php echo get_phrase('teacher');?></div></th>
                     		<th><div><?php echo get_phrase('options');?></div></th>
 						</tr>
 					</thead>
@@ -72,7 +71,6 @@
                             <td><?php echo $counter++;?></td>
 							<td><?php echo $classes['name'];?></td>
 							<td><?php echo $classes['name_numeric'];?></td>
-							<td><?php echo $this->crud_model->get_type_name_by_id('teacher', $classes['teacher_id']);?></td>
 							<td>
 							
 				    <a href="#" onclick="showAjaxModal('<?php echo base_url();?>modal/popup/edit_class/<?php echo $classes['class_id'];?>');"><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-pencil"></i></button></a>

@@ -6,13 +6,13 @@
                     
                 <div class="form-group">
                     <div class="col-sm-12">
-                    <select id="class_id" class="form-control">
+                    <select id="section_id" class="form-control">
                     <option value=""><?php echo get_phrase('select_grade_level');?></option>
 
-                    <?php $class =  $this->db->get('class')->result_array();
-                    foreach($class as $key => $class):?>
-                    <option value="<?php echo $class['class_id'];?>"
-                    <?php if($class_id == $class['class_id']) echo 'selected';?>><?php echo $class['name'];?></option>
+                    <?php $section =  $this->db->get('section')->result_array();
+                    foreach($section as $key => $section):?>
+                    <option value="<?php echo $section['section_id'];?>"
+                    <?php if($section_id == $section['section_id']) echo 'selected';?>><?php echo $section['section_name'];?></option>
                     <?php endforeach;?>
                    </select>
 
@@ -23,7 +23,7 @@
 				
  				<!-- PHP that includes table for subject starts here  ------>
                 <div id="data">
-                <?php include 'showStudentClasswise.php';?>
+                <?php include 'showStudentSectionwise.php';?>
                 </div>
                 <!-- PHP that includes table for subject ends here  ------>
 
@@ -37,11 +37,11 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 
-		$('#class_id').select2();
+		$('#section_id').select2();
 		$('#find').on('click', function() 
 		{
-			var class_id = $('#class_id').val();
-			 if (class_id == "") {
+			var section_id = $('#section_id').val();
+			 if (section_id == "") {
            $.toast({
             text: 'Please select class before clicking get student button',
             position: 'top-right',
@@ -53,9 +53,9 @@
             return false;
         }
 			$.ajax({
-				url: '<?php echo site_url('admin/getStudentClasswise/');?>' + class_id
+				url: '<?php echo site_url('admin/getStudentSectionwise/');?>' + section_id
 			}).done(function(response) {
-                console.log(class_id);
+                console.log(section_id);
 				$('#data').html(response);
 			});
 		});

@@ -24,7 +24,7 @@ foreach ($class as $key => $class):?>
                             </div>
 
 								
-				<div class="form-group">
+				<!-- <div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('teacher');?></label>
                     <div class="col-sm-12">
                                     <select name="teacher_id" class="form-control select2" required>
@@ -41,7 +41,7 @@ foreach ($class as $key => $class):?>
                     <?php endforeach;?>
                     </select>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                                   <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-edit"></i>&nbsp;<?php echo get_phrase('edit_class');?></button>
 							</div>

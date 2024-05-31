@@ -578,7 +578,24 @@ class Admin extends CI_Controller {
     /**************************  search student function with ajax ends here   ***********************************/
 
 
-    function edit_student($student_id){
+    function student_information_section(){
+
+        $page_data['page_name']     = 'student_information_section';
+        $page_data['page_title']    = get_phrase('List Section with students');
+        $this->load->view('backend/index', $page_data);
+    }
+
+
+    /**************************  search student function with ajax starts here   ***********************************/
+    function getStudentSectionwise($section_id) {
+
+        $page_data['section_id'] = $section_id;
+        $this->load->view('backend/admin/showStudentClasswise', $page_data);
+    }
+    /**************************  search student function with ajax ends here   ***********************************/
+
+
+    function edit_student($student_id) {
 
         $page_data['student_id']      = $student_id;
         $page_data['page_name']     = 'edit_student';

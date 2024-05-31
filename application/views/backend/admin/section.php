@@ -9,25 +9,24 @@
 
                 	<?php echo form_open(base_url() . 'admin/section/create' , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top'));?>
                             <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('name');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('section_name');?></label>
                     <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="name" / required>
+                                    <input type="text" class="form-control" name="section_name" / required>
                                 </div>
-                            </div>
+                            </div> 
 
 								<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('nick_name');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('code');?></label>
                     <div class="col-sm-12">
                                     <input type="text" class="form-control" name="nick_name"/ required>
                                 </div>
                             </div>
-
                     
                     <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('class');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Year & Grade Level');?></label>
                     <div class="col-sm-12">
                     <select name="class_id" class="form-control select2" required>
-                    <option value=""><?php echo get_phrase('select_class');?></option>
+                    <option value=""><?php echo get_phrase('select_grade');?></option>
 
                     <?php $class =  $this->db->get('class')->result_array();
                     foreach($class as $key => $class):?>
@@ -80,7 +79,7 @@
 
                             <a class="btn btn-info btn-rounded btn-sm" href="<?php echo base_url();?>admin/sections/<?php echo $classess['class_id'];?>" style="color:white">
 
-                                <?php echo get_phrase('class');?>: <?php echo $classess['name'];?>
+                                <?php echo get_phrase('Grade');?>: <?php echo $classess['name'];?>
                             </a>
 
                         </li>  
@@ -92,8 +91,8 @@
                 	<thead>
                 		<tr>
                     		<th><div>#</div></th>
-                    		<th><div><?php echo get_phrase('class_name');?></div></th>
-                    		<th><div><?php echo get_phrase('nick_name');?></div></th>
+                    		<th><div><?php echo get_phrase('Section');?></div></th>
+                    		<th><div><?php echo get_phrase('code');?></div></th>
                     		<th><div><?php echo get_phrase('teacher');?></div></th>
                     		<th><div><?php echo get_phrase('options');?></div></th>
 						</tr>
