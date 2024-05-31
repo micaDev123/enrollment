@@ -53,7 +53,7 @@ class Student_model extends CI_Model {
 // The function below update student category //
     function updatestudentCategory($param2){
         $page_data = array(
-            'name'        => html_escape($this->input->post('name')),
+            'full_name'        => html_escape($this->input->post('name')),
             'description' => html_escape($this->input->post('description'))
 	    );
 
@@ -74,7 +74,7 @@ class Student_model extends CI_Model {
     function createNewStudent(){
 
         $page_data = array(
-            'name'          => html_escape($this->input->post('name')),
+            'full_name'          => html_escape($this->input->post('full_name')),
             'birthday'      => html_escape($this->input->post('birthday')),
             'age'           => html_escape($this->input->post('age')),
             'place_birth'   => html_escape($this->input->post('place_birth')),
@@ -99,8 +99,8 @@ class Student_model extends CI_Model {
             // 'mark_join'        => html_escape($this->input->post('mark_join')),
             // 'physical_h'      => html_escape($this->input->post('physical_h')),
             'password'        => sha1($this->input->post('password')),
-            // 'class_id'        => html_escape($this->input->post('class_id')),
-            'section_id'      => html_escape($this->input->post('section_id')),
+            'class_id'        => html_escape($this->input->post('class_id')),
+            // 'section_id'      => html_escape($this->input->post('section_id')),
             // 'parent_id'       => html_escape($this->input->post('parent_id')),
             'roll'            => html_escape($this->input->post('roll')),
             // 'transport_id'    => html_escape($this->input->post('transport_id')),
@@ -121,7 +121,7 @@ class Student_model extends CI_Model {
     //the function below update student
     function updateNewStudent($param2){
         $page_data = array(
-            'name'          => html_escape($this->input->post('name')),
+            'full_name'          => html_escape($this->input->post('full_name')),
             'birthday'      => html_escape($this->input->post('birthday')),
             'age'           => html_escape($this->input->post('age')),
             'place_birth'   => html_escape($this->input->post('place_birth')),
@@ -147,7 +147,7 @@ class Student_model extends CI_Model {
             // 'physical_h'      => html_escape($this->input->post('physical_h')),
             'password'        => sha1($this->input->post('password')),
             // 'class_id'        => html_escape($this->input->post('class_id')),
-            'section_id'      => html_escape($this->input->post('section_id')),
+            // 'section_id'      => html_escape($this->input->post('section_id')),
             // 'parent_id'       => html_escape($this->input->post('parent_id')),
             'roll'            => html_escape($this->input->post('roll')),
             // 'transport_id'    => html_escape($this->input->post('transport_id')),

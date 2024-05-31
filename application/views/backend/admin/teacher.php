@@ -66,7 +66,7 @@
 						</div> 
 					</div>
 					
-						<div class="form-group">
+				<div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('address');?></label>
                     <div class="col-sm-12">
 							<input type="text" class="form-control" name="address" value="" required>
@@ -82,7 +82,7 @@
 					<div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('email');?></label>
                     <div class="col-sm-12">
-							<input type="email" class="form-control" name="email" value="">
+							<input type="email" class="form-control" name="email" value="" required>
 						</div>
 					</div>
 					
@@ -195,7 +195,8 @@
 
     <div class="col-sm-12">
         <select name="designation_id" class="form-control select2" id="designation_holder">
-            <option value=""><?php echo get_phrase('select_a_department_first'); ?></option>
+            <option onload ="get_designation_val(this.value)" value=""><?php echo get_phrase('select_a_department_first'); ?></option>
+                
         </select>
     </div> 
 </div>

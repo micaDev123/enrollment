@@ -61,7 +61,7 @@
                     <div class="col-sm-12">
 							<select name="class_id" class="form-control select2" style="width:100%"id="class_id" 
 								data-message-required="<?php echo get_phrase('value_required');?>"
-									onchange="return get_class_sections(this.value)">
+									onchange="return get_class_section(this.value)">
                               <option value=""><?php echo get_phrase('select');?></option>
                               <?php 
 								$classes = $this->db->get('class')->result_array();
@@ -80,16 +80,16 @@
 						</div> 
 					</div>
 
-					<div class="form-group">
+					<!-- <div class="form-group">
                  	<label class="col-md-9" for="example-text"><?php echo get_phrase('section');?></label>
                     <div class="col-sm-12">
-		                        <!-- <select name="section_id" class="form-control select2" style="width:100%" id="section_selector_holder">
+		                        <select name="section_id" class="form-control select2" style="width:100%" id="section_selector_holder">
 		                            <option value=""><?php echo get_phrase('select_class_first');?></option>
 			                        
 			                    </select> -->
 
 
-								<select name="section_id" class="form-control select2">
+								<!-- <select name="section_id" class="form-control select2">
 									<option value=""><?php echo get_phrase('select_section');?></option>
 									<?php $section =  $this->db->get('section')->result_array();
 									foreach($section as $key => $section):?>
@@ -99,7 +99,7 @@
 	<a href="<?php echo base_url();?>admin/section/"><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-plus"></i></button></a>
 			                </div>
 					</div>
-					
+					 -->
 						
 					<input type="hidden" class="form-control" name="roll" value="<?php echo substr(md5(uniqid(rand(), true)), 0, 7); ?>" required>
 					

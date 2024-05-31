@@ -25,7 +25,7 @@
                            <?php $student =  $this->db->get('student')->result_array();
                                     foreach($student as $key => $student):?>         	
                                     		<!-- <option value="<?php echo $student['student_id'];?>"><?php echo $student['name'];?></option> -->
-                                            <option value="<?php echo $student['student_id'];?>"<?php if($enrollment['student_id']== $student['student_id']) echo 'selected';?>><?php echo $student['name'];?></option>
+                                            <option value="<?php echo $student['student_id'];?>"<?php if($enrollment['student_id']== $student['student_id']) echo 'selected';?>><?php echo $student['full_name'];?></option>
                             <?php endforeach;?>
                                      
                             </select>              

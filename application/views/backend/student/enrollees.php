@@ -171,7 +171,6 @@
     <thead>
         <tr>
             <th>#</th>
-            <th><?php echo get_phrase('file_type');?></th>
             <th><?php echo get_phrase('Name');?></th>
             <th><?php echo get_phrase('Section');?></th>
             <!-- <th><?php echo get_phrase('subject');?></th>
@@ -188,22 +187,6 @@
                 foreach($exam_questions as $key => $exam_question):?>
             <tr>
                 <td><?php echo $counter++;?></td>
-                <td>
-                <?php if($exam_question['file_type']=='img' || $exam_question['file_type']== 'jpg' || $exam_question['file_type']== 'png'){?>
-                <img src="<?php echo base_url();?>optimum/images/image.png" style="max-height:40px;">
-                <?php }?>
-                <?php if($exam_question['file_type']=='docx'){?>
-                <img src="<?php echo base_url();?>optimum/images/doc.jpg" style="max-height:40px;">
-                <?php }?>
-                <?php if($exam_question['file_type']=='pdf'){?>
-                <img src="<?php echo base_url();?>optimum/images/pdf.jpg" style="max-height:40px;">
-                <?php }?>
-                <?php if($exam_question['file_type']=='xlsx'){?>
-                <img src="<?php echo base_url();?>optimum/images/text.png" style="max-height:40px;">
-                <?php }?>
-                <?php if($exam_question['file_type']=='txt'){?>
-                <img src="<?php echo base_url();?>optimum/images/text.png" style="max-height:40px;">
-                <?php }?>
 
               
                 </td>
