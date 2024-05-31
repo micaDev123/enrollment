@@ -89,7 +89,7 @@
 			                    </select> -->
 
 
-								<!-- <select name="section_id" class="form-control select2">
+								<select name="section_id" class="form-control select2">
 									<option value=""><?php echo get_phrase('select_section');?></option>
 									<?php $section =  $this->db->get('section')->result_array();
 									foreach($section as $key => $section):?>
@@ -97,9 +97,9 @@
 									<?php endforeach;?>
 								</select>
 	<a href="<?php echo base_url();?>admin/section/"><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-plus"></i></button></a>
-			                </div>
-					</div>
-					 -->
+			                <!-- </div>
+					</div> -->
+					
 						
 					<input type="hidden" class="form-control" name="roll" value="<?php echo substr(md5(uniqid(rand(), true)), 0, 7); ?>" required>
 					

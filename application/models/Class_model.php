@@ -16,7 +16,7 @@ class   Class_model extends CI_Model {
         $page_data = array(
             'name' => html_escape($this->input->post('name')),
             'name_numeric' => html_escape($this->input->post('name_numeric')),
-            'teacher_id' => $this->input->post('teacher_id')
+            // 'teacher_id' => $this->input->post('teacher_id')
 			);
 
         $this->db->insert('class', $page_data);
@@ -27,7 +27,7 @@ class   Class_model extends CI_Model {
         $page_data = array(
             'name' => html_escape($this->input->post('name')),
             'name_numeric' => html_escape($this->input->post('name_numeric')),
-            'teacher_id' => $this->input->post('teacher_id')
+            // 'teacher_id' => $this->input->post('teacher_id')
 			);
 
         $this->db->where('class_id', $param2);

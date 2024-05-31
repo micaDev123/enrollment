@@ -29,7 +29,7 @@
 						<div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('full_name');?></label>
                     <div class="col-sm-12">
-							<input type="text" class="form-control" value="<?php echo $student['full_name'];?>" name="full_name" required autofocus>
+							<input type="text" class="form-control" value="<?php echo $student['name'];?>" name="name" required autofocus>
 						</div>
 					</div>
 <!-- 
@@ -89,7 +89,7 @@
 			                </div>
 					</div>		 -->
 
-					<!-- <div class="form-group">
+					<div class="form-group">
                  	<label class="col-md-9" for="example-text"><?php echo get_phrase('section');?></label>
                     <div class="col-sm-12">
 		                        <select name="section_id" class="form-control select2" style="width:100%" id="section_selector_holder">
@@ -105,7 +105,7 @@
 			                    </select>
 	                            <a href="<?php echo base_url();?>admin/section/"><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-plus"></i></button></a>
 			                </div>
-					</div>						 -->
+					</div>						
 					
 
 					<div class="form-group">
