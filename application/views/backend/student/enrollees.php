@@ -20,7 +20,7 @@
                                 $account_id     =   $account_type.'_id';
                                 $name           =   $this->crud_model->get_type_name_by_id($account_type , $this->session->userdata($account_id), 'name');
                                 echo $name;
-                        ?>"class="form-control" name="name" / readonly>
+                        ?>"class="form-control" name="full_name" / readonly>
                         </div>
                     </div>
 

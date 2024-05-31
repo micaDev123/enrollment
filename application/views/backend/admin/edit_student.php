@@ -89,14 +89,13 @@
 			                </div>
 					</div>		 -->
 
-					<div class="form-group">
+					<!-- <div class="form-group">
                  	<label class="col-md-9" for="example-text"><?php echo get_phrase('section');?></label>
                     <div class="col-sm-12">
 		                        <select name="section_id" class="form-control select2" style="width:100%" id="section_selector_holder">
 		                            <option value=""><?php echo get_phrase('select_class_first');?></option>
 			                        <?php $section =  $this->db->get('section')->result_array();
 									foreach($section as $key => $section):?>
-									<!-- <option value="<?php echo $section['section_id'];?>"><?php echo $section['section_name'];?></option> -->
 									<option value="<?php echo $section['section_id'];?>"<?php if($section['section_id'] == $section['section_id']) echo 'selected';?>>
 											<?php echo $class['section_name'];?></option>
 									<?php endforeach;?>
@@ -106,7 +105,7 @@
 			                    </select>
 	                            <a href="<?php echo base_url();?>admin/section/"><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-plus"></i></button></a>
 			                </div>
-					</div>						
+					</div>						 -->
 					
 
 					<div class="form-group">
