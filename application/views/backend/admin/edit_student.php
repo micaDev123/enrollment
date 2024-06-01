@@ -72,9 +72,7 @@
 								endforeach;
 							  ?>
                           </select>
-		<a href="<?php echo base_url();?>admin/classes/"><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-plus"></i></button></a>
-
-
+						<a href="<?php echo base_url();?>admin/classes/"><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-plus"></i></button></a>
 						</div> 
 					</div>
 
@@ -88,6 +86,23 @@
 	                            <a href="<?php echo base_url();?>admin/section/"><button type="button" class="btn btn-info btn-circle btn-xs"><i class="fa fa-plus"></i></button></a>
 			                </div>
 					</div>		 -->
+
+
+					<div class="form-group">
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Year & Grade Level');?></label>
+                    <div class="col-sm-12">
+                    <select name="section_id" id="section_id" class="form-control select2" onchange="return get_class_subject(this.value)">
+                    <option value=""><?php echo get_phrase('select_section');?></option>
+
+                    <?php $section =  $this->db->get('class')->result_array();
+                    foreach($section as $key => $section):?>
+                    <option value="<?php echo $section['class_id'];?>">
+                    <?php echo $section['name'];?></option>
+                    <?php endforeach;?>
+                   </select>
+
+                  </div>
+                 </div>
 
 					<div class="form-group">
                  	<label class="col-md-9" for="example-text"><?php echo get_phrase('section');?></label>

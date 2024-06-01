@@ -192,22 +192,24 @@ class Student extends CI_Controller {
 
 
         }
+
+        
         function enrollees($param1 = null, $param2 = null, $param3 = null){
 
             if($param1 == 'create'){
-                $this->StudentEnrollment_model->createexamQuestion();
+                $this->StudentEnrollment_model->createexamQuestionStudent();
                 $this->session->set_flashdata('flash_message', get_phrase('Data saved successfully'));
                 redirect(base_url(). 'student/enrollees', 'refresh');
             }
     
             if($param1 == 'update'){
-                $this->StudentEnrollment_model->updateexamQuestion($param2);
+                $this->StudentEnrollment_model->createexamQuestionStudent($param2);
                 $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
                 redirect(base_url(). 'student/enrollees', 'refresh');
             }
     
             if($param1 == 'delete'){
-                $this->StudentEnrollment_model->deleteexamQuestion($param2);
+                $this->StudentEnrollment_model->createexamQuestionStudent($param2);
                 $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
                 redirect(base_url(). 'student/enrollees', 'refresh');
             }

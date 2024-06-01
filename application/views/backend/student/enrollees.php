@@ -66,15 +66,15 @@
                   </div>
                  </div> -->
 
-
+<!-- 
 				<div class="form-group">
                  	<label class="col-md-12" for="example-text" readonly><?php echo get_phrase('select_date');?></label>
                     <div class="col-sm-12">
 
-                 	<input type="date" name="timestamp" value="<?php echo date('Y-m-d');?>" class="form-control datepicker" id="example-date-input" required>
+                 	<input type="date" name="date_of_enrollment" value="<?php echo date('Y-m-d');?>" class="form-control datepicker" id="example-date-input" required>
 				   
                     </div>
-                </div>
+                </div> -->
 
                <!-- <div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('select_teacher');?></label>
@@ -177,28 +177,6 @@
         <hr>
         <div align="center">  
                  <div align="center">
-                    
-        <strong>Your Enrollment Status: </strong>
-        <?php $counter = 1; $exam_questions = $this->db->get_where('enrollment')->result_array();
-                foreach($exam_questions as $key => $exam_question):?>
-        <span class="label label-<?php if($exam_question['status']== '0') echo 'warning'; elseif($exam_question['status']== '1') echo 'success'; else echo 'danger';?>">
-                
-                <?php if($exam_question['status']== '0'):?>
-                Pending...
-                <?php endif;?>
-
-                <?php if($exam_question['status']== '1'):?>
-                Enrolled
-                <?php endif;?>
-
-                <?php if($exam_question['status']== '2'):?>
-                Disapproved
-                <?php endif;?>
-
-
-                </span>
-
-        </div>  
 
                         <div class="row panel-body">
                         <div class="col-sm-6">
@@ -210,7 +188,6 @@
                     </div>
                 </div>
   
-                <?php endforeach;?>
 </div>
 </div>
 </div>
@@ -219,7 +196,7 @@
 
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
 function get_class_subject(class_id){
     $.ajax({
@@ -231,4 +208,4 @@ function get_class_subject(class_id){
     });
 }
 
-</script>
+</script> -->

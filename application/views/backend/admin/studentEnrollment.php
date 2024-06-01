@@ -35,7 +35,7 @@
                     <div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('Year & Grade Level');?></label>
                     <div class="col-sm-12">
-                    <select name="section_id" id="section_id" class="form-control select2" onchange="return get_class_subject(this.value)">
+                    <select name="class_id" id="class_id" class="form-control select2" onchange="return get_class_subject(this.value)">
                     <option value=""><?php echo get_phrase('select_section');?></option>
 
                     <?php $section =  $this->db->get('class')->result_array();
@@ -223,9 +223,9 @@
         <tr>
             <th>#</th>
             <th><?php echo get_phrase('full_name');?></th>
-            <th><?php echo get_phrase('Section');?></th>
+            <th><?php echo get_phrase('Year And Grade Level');?></th>
             <th><?php echo get_phrase('date_enrolled');?></th>
-            <th><?php echo get_phrase('Grade level');?></th>
+            <th><?php echo get_phrase('section');?></th>
             <th><?php echo get_phrase('status');?></th>
             <th><?php echo get_phrase('options');?></th>
         </tr>
@@ -238,11 +238,10 @@
             <tr>
                 <td><?php echo $counter++;?></td>
                 <td><?php echo $this->db->get_where('student', array('student_id' => $exam_question['student_id']))->row()->name;?></td>
+                
                 <td><?php echo $this->db->get_where('class', array('class_id' => $exam_question['class_id']))->row()->name;?></td>
-                <td><?php echo $exam_question['date_of_enrollment'];?></td> 
-                <td><?php echo $exam_question['grade_level'];?></td>
-                <!-- <td><?php echo $this->db->get_where('teacher', array('teacher_id' => $exam_question['teacher_id']))->row()->name;?></td> -->
-                <!-- <td><?php echo $exam_question['description'];?></td> -->
+                <td><?php echo $exam_question['date_of_enrollment'];?></td>
+                <td><?php echo $this->db->get_where('section', array('section_id' => $exam_question['section_id']))->row()->section_name;?></td> 
                 <td>
                 <span class="label label-<?php if($exam_question['status']== '0') echo 'warning'; elseif($exam_question['status']== '1') echo 'success'; else echo 'danger';?>">
                 

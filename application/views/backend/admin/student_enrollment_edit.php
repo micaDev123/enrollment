@@ -9,77 +9,46 @@
 	
 
 
-              <!-- <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Student Name');?></label>
+                <!-- <div class="form-group">
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('name');?></label>
                     <div class="col-sm-12">
-                                    <input type="text" class="form-control" name="name" / required>
+                                    <input type="text" class="form-control" value="<?php echo $enrollment['name'];?>" name="name" / required>
                         </div>
                     </div> -->
 
                     <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Student Name');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Your Name');?></label>
                     <div class="col-sm-12">
-                       
-					   <select name="student_id" class="form-control select2" style="width:100%;" required>
+                    <select name="student_id" class="form-control select2" style="width:100%;" required readonly>
 										<option value=""><?php echo get_phrase('select');?></option>
 
                            <?php $student =  $this->db->get('student')->result_array();
                                     foreach($student as $key => $student):?>         	
-                                    		<option value="<?php echo $student['student_id'];?>"><?php echo $student['name'];?></option>
+                                    		<!-- <option value="<?php echo $student['student_id'];?>"><?php echo $student['name'];?></option> -->
+                                            <option value="<?php echo $student['student_id'];?>"<?php if($enrollment['student_id']== $student['student_id']) echo 'selected';?>><?php echo $student['name'];?></option>
                             <?php endforeach;?>
-                        </select>              
-                    </div> 
-                </div>
+                                     
+                            </select>              
+						</div> 
+					</div>
+
 
                     <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Year & Grade Level');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('class');?></label>
                     <div class="col-sm-12">
-                    <select name="section_id" id="section_id" class="form-control select2" onchange="return get_class_subject(this.value)">
-                    <option value=""><?php echo get_phrase('select_section');?></option>
+                    <select name="class_id" id="class_id" class="form-control select2" onchange="return get_class_subject(this.value)">
+                    <option value=""><?php echo get_phrase('select_class');?></option>
 
-                    <?php $section =  $this->db->get('class')->result_array();
-                    foreach($section as $key => $section):?>
-                    <option value="<?php echo $section['class_id'];?>">
-                    <?php echo $section['name'];?></option>
+                    <?php $class =  $this->db->get('class')->result_array();
+                    foreach($class as $key => $class):?>
+                    <option value="<?php echo $class['class_id'];?>"<?php if($enrollment['class_id'] == $class['class_id']) echo 'selected';?>><?php echo $class['name'];?></option>
                     <?php endforeach;?>
                    </select>
 
                   </div>
                  </div>
 
-
-				<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('date_enrollment');?></label>
-                    <div class="col-sm-12">
-
-                 	<input type="date" name="date_of_enrollment" value="<?php echo date('Y-m-d');?>" class="form-control datepicker" id="example-date-input" required>
-				   
-                    </div>
-                </div>
-
-               <!-- <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('select_grade_level');?></label>
-                    <div class="col-sm-12">         
-                                    
-                                    
-
-                    <select name="grade_level" class="form-control select2" style="width:100%;" required>
-                    <option value=""><?php echo get_phrase('select_grade');?></option>
-                    <option value="7"><?php echo get_phrase('7');?></option>
-                    <option value="8"><?php echo get_phrase('8');?></option>
-                    <option value="9"><?php echo get_phrase('9');?></option>
-                    <option value="10"><?php echo get_phrase('10');?></option>
-                    <option value="11"><?php echo get_phrase('11');?></option>
-                    <option value="12"><?php echo get_phrase('12');?></option>
-                   </select>
-					    
-						
-                    </div> 
-                </div> -->
-
-
-
-                <div class="form-group">
+                 <div class="form-group">
                 <label class="col-sm-12"><?php echo get_phrase('Section'); ?></label>
 
                 <div class="col-sm-12">
@@ -96,40 +65,55 @@
                 </div> 
                 </div>
 
-                <!-- <div class="form-group">
-                <label class="col-sm-12"><?php echo get_phrase('Subject'); ?></label>
 
-                <div class="col-sm-12">
-                <select name="subject_id" class="form-control select2" id="subject_holder">
-                <option value=""><?php echo get_phrase('select_grade_first'); ?></option>
-                </select>
-                </div> 
+						<div class="form-group">
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Date of Enrollment');?></label>
+                    <div class="col-sm-12">
+
+                 	<input type="date" name="date_of_enrollment" value="<?php echo $enrollment['date_of_enrollment'];?>" class="form-control datepicker" id="example-date-input" required>
+				   
+                    </div>
+                </div>
+
+               <!-- <div class="form-group">
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('select_teacher');?></label>
+                    <div class="col-sm-12">
+                       
+					   <select name="teacher_id" class="form-control select2" style="width:100%;" required>
+										<option value=""><?php echo get_phrase('select');?></option>
+
+                           <?php $teacher =  $this->db->get('teacher')->result_array();
+                                    foreach($teacher as $key => $teacher):?>         	
+                                    		<option value="<?php echo $teacher['teacher_id'];?>"<?php if($enrollment['teacher_id']== $teacher['teacher_id']) echo 'selected';?>><?php echo $teacher['name'];?></option>
+                            <?php endforeach;?>
+                                     
+                                    </select>              
+					    
+						
+                    </div> 
                 </div> -->
 
 
-
-
-
-
-                <div class="form-group">
+                <!-- <div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('file_type');?></label>
                     <div class="col-sm-12">
+                       
 					   <select name="file_type" class="form-control select2" style="width:100%;" required>
 										<option value=""><?php echo get_phrase('file_type');?></option>
 
                            
-                                    		<option value="pdf">PDF</option>
-                                            <option value="xlsx">Excel</option>
-                                            <option value="docx">Word Document</option>
-                                            <option value="img">Image</option>
-                                            <option value="txt">Text File</option>
+                                    		<option value="pdf"<?php if($enrollment['file_type'] == 'pdf') echo 'selected';?>>PDF</option>
+                                            <option value="xlsx"<?php if($enrollment['file_type'] == 'xlsx') echo 'selected';?>>Excel</option>
+                                            <option value="docx"<?php if($enrollment['file_type'] == 'docx') echo 'selected';?>>Word Document</option>
+                                            <option value="img"<?php if($enrollment['file_type'] == 'img') echo 'selected';?>>Image</option>
+                                            <option value="txt"<?php if($enrollment['file_type'] == 'txt') echo 'selected';?>>Text File</option>
                           
                                      
                                     </select>              
 					    
 						
                     </div> 
-                </div>
+                </div> -->
 
 
                 <div class="form-group">
@@ -139,9 +123,10 @@
 					   <select name="status" class="form-control select2" style="width:100%;" required>
 										<option value=""><?php echo get_phrase('status');?></option>
 
-                                            <option value="0">Pending</option>
-                                    		<option value="1">Enrolled</option>
-                                            <option value="2">Disaprove</option>
+                           
+                                    		<option value="0"<?php if($enrollment['status'] == '0') echo 'selected';?>>Pending</option>
+                                            <option value="1"<?php if($enrollment['status'] == '1') echo 'selected';?>>Enrolled</option>
+                                            <option value="2"<?php if($enrollment['status'] == '2') echo 'selected';?>>Disapproved</option>
                                             
                           
                                      
@@ -150,55 +135,20 @@
 						
                     </div> 
                 </div>
-<!-- 
-                <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Add Subject');?></label>
-                    <div class="col-sm-12">
-                    <input type="checkbox" name="subject" required>
-                    <?php $student =  $this->db->get('subject')->result_array();
-                                    foreach($subject as $key => $subject):?>
-                                    <input type="checkbox" onclick="toggle(this);" />Check all?<br />         
-                                    <input type="checkbox" value="<?php echo $section['section_name'];?>" required>
-                            <?php endforeach;?>
-
-                            <?php $section =  $this->db->get('section')->result_array();
-                    foreach($section as $key => $section):?>
-                    <option value="<?php echo $section['section_id'];?>">
-                    <?php echo $section['section_name'];?></option>
-                    <?php endforeach;?>
-                   </select>
-               
-				   
-                    </div>
-                </div> -->
 
 
-
- 
-				
-				
 				<!-- <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Remarks');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('description');?></label>
                     <div class="col-sm-12">
-                                <textarea  name="description" class="form-control textarea_editor"></textarea>
+                                <textarea  name="description" class="form-control"><?php echo $enrollment['description'];?></textarea>
                             </div>
-                        </div>
-				 -->
-				
-							
-					<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('select_document');?></label>
-                    <div class="col-sm-12">
-                    <input type="file" name="file_name" class="dropify" required>
-                    </div></div>
-							
-					
+                        </div> -->
                     
                     <div class="form-group">
-							<button type="submit" class="btn btn-info btn-block btn-sm btn-rounded"> <i class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('Submit New Enrollees');?></button>
+							<button type="submit" class="btn btn-info btn-block btn-sm btn-rounded"> <i class="fa fa-edit"></i>&nbsp;<?php echo get_phrase('student_enrollment_edit');?></button>
 					</div>
-					<br>
-                <?php echo form_close();?>						
+					
+                <?php echo form_close();?>	
 									
 									
                             </div>
