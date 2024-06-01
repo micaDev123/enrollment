@@ -8,7 +8,7 @@
 <meta name="author" content="OPTIMUM LINKUP COMPUTERS">
 
   <!-- Favicons -->
-  <link href="<?php echo base_url(); ?>assets/images/favicon.png" rel="icon">
+  <link href="<?php echo base_url(); ?>assets/images/logo.png" rel="icon">
   <link href="<?php echo base_url(); ?>assets/images/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->

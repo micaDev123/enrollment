@@ -1,6 +1,6 @@
  <!--row -->
  <div class="row">
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-6 col-sm-6">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-user bg-megna"></i>
@@ -11,7 +11,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-6 col-sm-6">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-user bg-info"></i>
@@ -22,7 +22,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
+                    <!-- <div class="col-md-3 col-sm-6">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-user bg-success"></i>
@@ -32,8 +32,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
+                    </div> -->
+                    <!-- <div class="col-md-3 col-sm-6">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-wallet bg-inverse"></i>
@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                
           

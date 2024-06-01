@@ -41,7 +41,7 @@
 
     
 
-    <li> <a href="#" ><i data-icon="&#xe006;" class="fa fa-download p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('download_page');?><span class="fa arrow"></span></span></a>
+    <!-- <li> <a href="#" ><i data-icon="&#xe006;" class="fa fa-download p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('download_page');?><span class="fa arrow"></span></span></a>
         
                         <ul class=" nav nav-second-level<?php
             if ($page_name == 'assignment' ||
@@ -64,14 +64,11 @@
                 <i class="fa fa-angle-double-right p-r-10"></i>
                       <span class="hide-menu"><?php echo get_phrase('study_materials'); ?></span>
                 </a>
-            </li>
+            </li> -->
 
-
-
-
-     
+<!--      
                  </ul>
-        </li>
+        </li> -->
 
     <li class="attendance"> <a href="#" ><i data-icon="&#xe006;" class="fa fa-hospital-o p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('manage_class');?><span class="fa arrow"></span></span></a>
         
@@ -93,7 +90,7 @@
         </ul>
     </li>
 
-    <li> <a href="#" ><i data-icon="&#xe006;" class="fa fa-bar-chart-o p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('student_scores');?><span class="fa arrow"></span></span></a>
+    <!-- <li> <a href="#" ><i data-icon="&#xe006;" class="fa fa-bar-chart-o p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('student_scores');?><span class="fa arrow"></span></span></a>
         
         <ul class=" nav nav-second-level<?php
             if ($page_name == 'marks' ||
@@ -123,7 +120,7 @@
         <?php endif;?>
      
         </ul>
-    </li>
+    </li> -->
                         
                                 
             <li class="<?php if ($page_name == 'manage_profile') echo 'active'; ?> ">

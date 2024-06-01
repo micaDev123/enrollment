@@ -33,7 +33,7 @@
                 </div>
 
                     <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Section');?></label>
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Year & Grade Level');?></label>
                     <div class="col-sm-12">
                     <select name="section_id" id="section_id" class="form-control select2" onchange="return get_class_subject(this.value)">
                     <option value=""><?php echo get_phrase('select_section');?></option>
@@ -58,7 +58,7 @@
                     </div>
                 </div>
 
-               <div class="form-group">
+               <!-- <div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('select_grade_level');?></label>
                     <div class="col-sm-12">         
                                     
@@ -76,28 +76,28 @@
 					    
 						
                     </div> 
-                </div>
+                </div> -->
 
 
 
-                <!-- <div class="form-group">
-                <label class="col-sm-12"><?php echo get_phrase('select_grade_level'); ?></label>
+                <div class="form-group">
+                <label class="col-sm-12"><?php echo get_phrase('Section'); ?></label>
 
                 <div class="col-sm-12">
                 <select name="section_id" class="form-control select2" onchange="subjectOnkeyUp(this.value)" required>
-                <option value=""><?php echo get_phrase('select_grade'); ?></option>
+                <option value=""><?php echo get_phrase('select_section'); ?></option>
                 <?php
                 $gradeLevel = $this->db->get('section')->result_array();
                 foreach ($gradeLevel as $row): ?>
-                <option value="<?php echo $row['description_id']; ?>">
-                <?php echo $row['grade_level']; ?>
+                <option value="<?php echo $row['section_id']; ?>">
+                <?php echo $row['section_name']; ?>
                 </option>
                 <?php endforeach; ?>
                 </select>
                 </div> 
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                 <label class="col-sm-12"><?php echo get_phrase('Subject'); ?></label>
 
                 <div class="col-sm-12">
@@ -112,7 +112,7 @@
 
 
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('file_type');?></label>
                     <div class="col-sm-12">
 					   <select name="file_type" class="form-control select2" style="width:100%;" required>
@@ -130,7 +130,7 @@
 					    
 						
                     </div> 
-                </div>
+                </div> -->
 
 
                 <div class="form-group">
@@ -222,7 +222,6 @@
     <thead>
         <tr>
             <th>#</th>
-            <th><?php echo get_phrase('file_type');?></th>
             <th><?php echo get_phrase('full_name');?></th>
             <th><?php echo get_phrase('Section');?></th>
             <th><?php echo get_phrase('date_enrolled');?></th>
@@ -238,25 +237,6 @@
                 foreach($exam_questions as $key => $exam_question):?>
             <tr>
                 <td><?php echo $counter++;?></td>
-                <td>
-                <?php if($exam_question['file_type']=='img' || $exam_question['file_type']== 'jpg' || $exam_question['file_type']== 'png'){?>
-                <img src="<?php echo base_url();?>optimum/images/image.png" style="max-height:40px;">
-                <?php }?>
-                <?php if($exam_question['file_type']=='docx'){?>
-                <img src="<?php echo base_url();?>optimum/images/doc.jpg" style="max-height:40px;">
-                <?php }?>
-                <?php if($exam_question['file_type']=='pdf'){?>
-                <img src="<?php echo base_url();?>optimum/images/pdf.jpg" style="max-height:40px;">
-                <?php }?>
-                <?php if($exam_question['file_type']=='xlsx'){?>
-                <img src="<?php echo base_url();?>optimum/images/text.png" style="max-height:40px;">
-                <?php }?>
-                <?php if($exam_question['file_type']=='txt'){?>
-                <img src="<?php echo base_url();?>optimum/images/text.png" style="max-height:40px;">
-                <?php }?>
-
-              
-                </td>
                 <td><?php echo $this->db->get_where('student', array('student_id' => $exam_question['student_id']))->row()->name;?></td>
                 <td><?php echo $this->db->get_where('class', array('class_id' => $exam_question['class_id']))->row()->name;?></td>
                 <td><?php echo $exam_question['date_of_enrollment'];?></td> 

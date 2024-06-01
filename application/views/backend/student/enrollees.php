@@ -1,3 +1,4 @@
+
 <div class="row">
                     <div class="col-sm-12">
                         <div class="panel panel-info">
@@ -10,19 +11,31 @@
                                 <div class="panel-body">
                 <?php echo form_open(base_url().'student/enrollees/create' , array('class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
 	
-
-
                 <div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('Student Name');?></label>
                     <div class="col-sm-12">
-                                    <input type="text" value="<?php 
+					   <select name="student_id" class="form-control select2" style="width:100%;" required>
+										<option value=""><?php echo get_phrase('select');?></option>
+
+                           <?php $student =  $this->db->get('student')->result_array();
+                                    foreach($student as $key => $student):?>         	
+                                    		<option value="<?php echo $student['student_id'];?>"><?php echo $student['name'];?></option>
+                            <?php endforeach;?>
+                        </select>              
+                    </div> 
+                </div>
+
+                <!-- <div class="form-group">
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Student Name');?></label>
+                    <div class="col-sm-12">
+                                    <input type="text" name="student_id" value="<?php  
                                 $account_type   =   $this->session->userdata('login_type');
                                 $account_id     =   $account_type.'_id';
-                                $name           =   $this->crud_model->get_type_name_by_id($account_type , $this->session->userdata($account_id), 'name');
+                                $name           =   $this->crud_model->get_student_id($student_id , $this->session->userdata($account_id), 'student_id');
                                 echo $name;
-                        ?>"class="form-control" name="full_name" / readonly>
+                        ?>"class="form-control"  / readonly>
                         </div>
-                    </div>
+                    </div> -->
 
                     
 
@@ -55,7 +68,7 @@
 
 
 				<div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('select_date');?></label>
+                 	<label class="col-md-12" for="example-text" readonly><?php echo get_phrase('select_date');?></label>
                     <div class="col-sm-12">
 
                  	<input type="date" name="timestamp" value="<?php echo date('Y-m-d');?>" class="form-control datepicker" id="example-date-input" required>
@@ -82,7 +95,7 @@
                 </div> -->
 
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('file_type');?></label>
                     <div class="col-sm-12">
                        
@@ -101,27 +114,14 @@
 					    
 						
                     </div> 
-                </div>
-
-
-                <!-- <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('status');?></label>
-                    <div class="col-sm-12">
-                       
-					   <select name="status" class="form-control select2" style="width:100%;" required>
-										<option value=""><?php echo get_phrase('status');?></option>
-
-                                            <option value="0">Pending</option>
-                                    		<option value="1">Approve</option>
-                                            <option value="2">Disaprove</option>
-                                            
-                          
-                                     
-                                    </select>              
-					    
-						
-                    </div> 
                 </div> -->
+
+
+            
+                       
+					<input type="hidden" name="status" value="0" class="form-control" />
+					    
+					
 
 
 				
@@ -156,54 +156,39 @@
                         </div>
                     </div>
 				</div>  
-  
-  
-  
-  
-  <div class="row">
+
+
+                <div class="row">
                     <div class="col-sm-12">
-				  	<div class="panel panel-info">
-                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('list');?></div>
-                            <div class="panel-wrapper collapse in" aria-expanded="true">
-                                <div class="panel-body table-responsive">
-								
-<table id="example23" class="display nowrap" cellspacing="0" width="100%">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th><?php echo get_phrase('Name');?></th>
-            <th><?php echo get_phrase('Section');?></th>
-            <!-- <th><?php echo get_phrase('subject');?></th>
-            <th><?php echo get_phrase('teacher');?></th>
-            <th><?php echo get_phrase('description');?></th> -->
-            <th><?php echo get_phrase('status');?></th>
-            <th><?php echo get_phrase('options');?></th>
-        </tr>
-    </thead>
+                        <div class="panel panel-info">
 
-    <tbody>
+                        <div class="panel-wrapper collapse in" aria-expanded="true">
+                        <div class="panel-body table-responsive">
 
-    <?php $counter = 1; $exam_questions = $this->db->get('enrollment')->result_array();
+                        <div class="printableArea">
+        <div align="center">
+        <img src="<?php echo base_url();?>uploads/logo.png" width="60px" height="60px" class="img-circle"><br/>
+        <span style="text-align:center; font-size:25px"><?php echo $system_name;?></span><br/>
+        <span style="text-align:center; font-size:15px"><?php echo $system_address;?></span>
+        </div>
+        <br>
+
+
+        <hr>
+        <div align="center">  
+                 <div align="center">
+                    
+        <strong>Your Enrollment Status: </strong>
+        <?php $counter = 1; $exam_questions = $this->db->get_where('enrollment')->result_array();
                 foreach($exam_questions as $key => $exam_question):?>
-            <tr>
-                <td><?php echo $counter++;?></td>
-
-              
-                </td>
-                <td><?php echo $this->db->get_where('student', array('student_id' => $exam_question['student_id']))->row()->name;?></td>
-                <!-- <td><?php echo $this->db->get_where('class', array('class_id' => $exam_question['class_id']))->row()->name;?></td> -->
-                <!-- <td><?php echo $this->db->get_where('subject', array('subject_id' => $exam_question['subject_id']))->row()->name;?></td> -->
-                <!-- <td><?php echo $this->db->get_where('teacher', array('teacher_id' => $exam_question['teacher_id']))->row()->name;?></td> -->
-                <td><?php echo $exam_question['description'];?></td>
-                <td>
-                <span class="label label-<?php if($exam_question['status']== '0') echo 'warning'; elseif($exam_question['status']== '1') echo 'success'; else echo 'danger';?>">
+        <span class="label label-<?php if($exam_question['status']== '0') echo 'warning'; elseif($exam_question['status']== '1') echo 'success'; else echo 'danger';?>">
                 
                 <?php if($exam_question['status']== '0'):?>
                 Pending...
                 <?php endif;?>
 
                 <?php if($exam_question['status']== '1'):?>
-                Approved
+                Enrolled
                 <?php endif;?>
 
                 <?php if($exam_question['status']== '2'):?>
@@ -212,23 +197,28 @@
 
 
                 </span>
-                </td>
-                <td>
-                <a href="<?php echo base_url().'uploads/enrollment/'. $exam_question['file_name'];?>"><button type="button" class="btn btn-info btn-circle btn-xs" ><i class="fa fa-download"></i></button></a>
-                    <a  onclick="showAjaxModal('<?php echo base_url();?>modal/popup/edit_enrollees/<?php echo $exam_question['enrollment_id'];?>');" ><button type="button" class="btn btn-success btn-circle btn-xs"><i class="fa fa-pencil"></i></button></a>
-					 <!-- <a href="<?php echo base_url();?>admin/studentEnrollment/delete/<?php echo $exam_question['enrollment_id'];?>" ><button type="button" class="btn btn-danger btn-circle btn-xs" onclick="return confirm('Are you sure to delete?');"><i class="fa fa-times"></i></button></a> -->
-					
-                   
-                </td>
-            </tr>
-    <?php endforeach;?>
-    </tbody>
-</table>
+
+        </div>  
+
+                        <div class="row panel-body">
+                        <div class="col-sm-6">
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+  
+                <?php endforeach;?>
 </div>
 </div>
 </div>
 </div>
-</div>
+
+
+
+
 <script type="text/javascript">
 
 function get_class_subject(class_id){

@@ -11,14 +11,14 @@ class StudentEnrollment_model extends CI_Model {
     // The function below inserts into exam question table //
     function createexamQuestion(){
         $page_data = array(
-            'student_id'                => $this->input->post('student_id'),
-            'grade_level'               => html_escape($this->input->post('grade_level')),
-            'section_id'                => $this->input->post('section_id'),
+            'student_id'               => html_escape($this->input->post('student_id')),
+            // 'grade_level'               => html_escape($this->input->post('grade_level')),
+            // 'section_id'                => $this->input->post('section_id'),
             // 'subject_id'                => html_escape($this->input->post('subject_id')),
             // 'teacher_id'                => html_escape($this->input->post('teacher_id')),
-            // 'timestamp'                 => html_escape($this->input->post('timestamp')),
-            'date_of_enrollment'        => html_escape($this->input->post('date_of_enrollment')),
-            'file_type'                 => html_escape($this->input->post('file_type')),
+            'timestamp'                 => html_escape($this->input->post('timestamp')),
+            // 'date_of_enrollment'        => html_escape($this->input->post('date_of_enrollment')),
+            // 'file_type'                 => html_escape($this->input->post('file_type')),
             'status'                    => html_escape($this->input->post('status'))
         );
 
@@ -40,15 +40,15 @@ class StudentEnrollment_model extends CI_Model {
         // $date_enrolled = array('date_of_enrollment' => html_escape($this->post('date_of_enrollment')));
         $page_data['file_name'] = $_FILES['file_name']['name'];
         // $check_student_status = $this->db->get_where('enrollment', array('date_of_enrollment' => $page_data['date_of_enrollment']))->row()->date_of_enrollment;
-        $id = $this->db->insert('enrollment', $page_data);
+        $this->db->insert('enrollment', $page_data);
 
-        if($id) {
-            $section_id = array(
-                'section_id'                => $this->input->post('section_id', true),
-            );
+        // if($id) {
+        //     $section_id = array(
+        //         'section_id'                => $this->input->post('section_id', true),
+        //     );
 
-            $s_section_id = $this->db->update('student', $section_id);
-        }
+        //     $s_section_id = $this->db->update('student', $section_id);
+        // }
     }
 
     // The function below updates exam question table //
