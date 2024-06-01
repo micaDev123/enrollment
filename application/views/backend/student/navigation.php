@@ -36,6 +36,7 @@
                         </ul>
                 </li>
 
+                
 
 
     <!-- <li> <a href="<?php echo base_url();?>student/dashboard" ><i class="ti-dashboard p-r-10"></i> <span class="hide-menu"><?php echo get_phrase('Dashboard') ;?></span></a> </li>
@@ -59,13 +60,6 @@
                     $page_name == 'assignment' || $page_name == 'study_material' )
                 echo 'opened active';
             ?>">
-
-<li class="<?php if ($page_name == 'enrollees') echo 'active'; ?> ">
-                <a href="<?php echo base_url(); ?>student/enrollees">
-                <i class="fa fa-angle-double-right p-r-10"></i>
-                        <span class="hide-menu"><?php echo get_phrase('Enrollment'); ?></span>
-                </a>
-            </li> 
 
 
             
@@ -114,7 +108,12 @@
     </li>
              
     
-
+    <li class="<?php if ($page_name == 'enrollees') echo 'active'; ?> ">
+                <a href="<?php echo base_url(); ?>student/enrollees">
+                <i class="fa fa-angle-double-right p-r-10"></i>
+                        <span class="hide-menu"><?php echo get_phrase('Enrollment'); ?></span>
+                </a>
+            </li> 
                             
             <!-- <li class="<?php if ($page_name == 'invoice') echo 'active'; ?> ">
                 <a href="<?php echo base_url(); ?>student/invoice">
