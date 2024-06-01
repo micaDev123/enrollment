@@ -1,4 +1,3 @@
-
 <div class="row">
                     <div class="col-sm-12">
                         <div class="panel panel-info">
@@ -11,6 +10,8 @@
                                 <div class="panel-body">
                 <?php echo form_open(base_url().'student/enrollees/create' , array('class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
 	
+
+
                 <div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('Student Name');?></label>
                     <div class="col-sm-12">
@@ -24,21 +25,6 @@
                         </select>              
                     </div> 
                 </div>
-
-                <!-- <div class="form-group">
-                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('Student Name');?></label>
-                    <div class="col-sm-12">
-                                    <input type="text" name="student_id" value="<?php  
-                                $account_type   =   $this->session->userdata('login_type');
-                                $account_id     =   $account_type.'_id';
-                                $name           =   $this->crud_model->get_student_id($student_id , $this->session->userdata($account_id), 'student_id');
-                                echo $name;
-                        ?>"class="form-control"  / readonly>
-                        </div>
-                    </div> -->
-
-                    
-
 
 
                     <!-- <div class="form-group">
@@ -66,12 +52,12 @@
                   </div>
                  </div> -->
 
-<!-- 
-				<div class="form-group">
-                 	<label class="col-md-12" for="example-text" readonly><?php echo get_phrase('select_date');?></label>
+
+				<!-- <div class="form-group">
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('select_date');?></label>
                     <div class="col-sm-12">
 
-                 	<input type="date" name="date_of_enrollment" value="<?php echo date('Y-m-d');?>" class="form-control datepicker" id="example-date-input" required>
+                 	<input type="date" name="timestamp" value="<?php echo date('Y-m-d');?>" class="form-control datepicker" id="example-date-input" required>
 				   
                     </div>
                 </div> -->
@@ -116,12 +102,27 @@
                     </div> 
                 </div> -->
 
-
-            
-                       
+                                        
 					<input type="hidden" name="status" value="0" class="form-control" />
+
+                <!-- <div class="form-group">
+                 	<label class="col-md-12" for="example-text"><?php echo get_phrase('status');?></label>
+                    <div class="col-sm-12">
+                       
+					   <select name="status" class="form-control select2" style="width:100%;" required>
+										<option value=""><?php echo get_phrase('status');?></option>
+
+                                            <option value="0">Pending</option>
+                                    		<option value="1">Approve</option>
+                                            <option value="2">Disaprove</option>
+                                            
+                          
+                                     
+                                    </select>              
 					    
-					
+						
+                    </div> 
+                </div> -->
 
 
 				
@@ -156,47 +157,26 @@
                         </div>
                     </div>
 				</div>  
-
-<!-- 
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="panel panel-info">
-
-                        <div class="panel-wrapper collapse in" aria-expanded="true">
-                        <div class="panel-body table-responsive">
-
-                        <div class="printableArea">
-        <div align="center">
-        <img src="<?php echo base_url();?>uploads/logo.png" width="60px" height="60px" class="img-circle"><br/>
-        <span style="text-align:center; font-size:25px"><?php echo $system_name;?></span><br/>
-        <span style="text-align:center; font-size:15px"><?php echo $system_address;?></span>
-        </div>
-        <br>
-
-
-        <hr>
-        <div align="center">  
-                 <div align="center">
-
-                        <div class="row panel-body">
-                        <div class="col-sm-6">
-                        </div>
-                        </div>
-                        </div>
-                        </div>
-                        </div>
-                    </div>
-                </div> -->
   
+  
+  
+  
+  <div class="row">
+                    <div class="col-sm-12">
+				  	<div class="panel panel-info">
+                            <div class="panel-heading"> <i class="fa fa-list"></i>&nbsp;&nbsp;<?php echo get_phrase('list');?></div>
+                            <div class="panel-wrapper collapse in" aria-expanded="true">
+                                <div class="panel-body table-responsive">
+								
+
+    </tbody>
+</table>
 </div>
 </div>
 </div>
 </div>
-
-
-
-
-<!-- <script type="text/javascript">
+</div>
+<script type="text/javascript">
 
 function get_class_subject(class_id){
     $.ajax({
@@ -208,4 +188,4 @@ function get_class_subject(class_id){
     });
 }
 
-</script> -->
+</script>
