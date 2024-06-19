@@ -111,7 +111,7 @@ $query_builder = TRUE;
 //     'save_queries' => TRUE
 // );
 
-// $db['db_1'] = array(
+// $db['STAJULIANA_DB_B1'] = array(
 //     'dsn'   => '',
 //     'hostname' => 'localhost',
 //     'username' => 'root',
@@ -133,7 +133,7 @@ $query_builder = TRUE;
 //     'save_queries' => TRUE
 // );
 
-// $db['db_2'] = array(
+// $db['STAJULIANA_DB_B2'] = array(
 //     'dsn'   => '',
 //     'hostname' => 'localhost',
 //     'username' => 'root',
@@ -156,7 +156,6 @@ $query_builder = TRUE;
 // );
 
 
-// $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
  
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
  
