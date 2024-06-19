@@ -21,22 +21,8 @@ class Admin extends CI_Controller {
     /**default functin, redirects to login page if no admin logged in yet***/
     public function index() 
 	{
-
-    $admin_login_default = $this->session->userdata('admin_login'); // Check admin login in default database
-    $admin_login_db_1 = $this->session->userdata('admin_login_db_1'); // Check admin login in db_1 database
-    // if ($this->session->userdata('admin_login') != 1) redirect(base_url() . 'login', 'refresh');
-    // if ($this->session->userdata('admin_login') == 1) redirect(base_url() . 'admin/dashboard', 'refresh');
-
-            if ($admin_login_default == 1) {
-                // Admin login found in the default database, redirect to admin dashboard
-                redirect(base_url() . 'admin/dashboard', 'refresh');
-            } elseif ($admin_login_db_1 == 1) {
-                // Admin login found in db_1 database, redirect to admin dashboard
-                redirect(base_url() . 'admin/dashboard', 'refresh');
-            } else {
-                // Admin login not found, redirect to login page
-                redirect(base_url() . 'login', 'refresh');
-            }
+    if ($this->session->userdata('admin_login') != 1) redirect(base_url() . 'login', 'refresh');
+    if ($this->session->userdata('admin_login') == 1) redirect(base_url() . 'admin/dashboard', 'refresh');
     }
 	  /************* / default functin, redirects to login page if no admin logged in yet***/
 
