@@ -9,7 +9,6 @@ class Systemsetting extends CI_Controller {
         		$this->load->library('session');					//Load library for session
                 $this->load->helper('url');
                 $this->load->database(); // Ensure database library is loaded
-                $this->load->model('database_model');  
                 $this->load->helper('database');   
                 switch_database();
 
