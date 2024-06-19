@@ -41,7 +41,7 @@ class Login_model extends CI_Model {
 
            // Try to authenticate with db_1 if default database login fails
            $this->load->database('STAJULIANA_DB_B3');
-           if ($this->authenticate($credential, 'db_2')) {
+           if ($this->authenticate($credential, 'STAJULIANA_DB_B3')) {
                return true;
            } 
     

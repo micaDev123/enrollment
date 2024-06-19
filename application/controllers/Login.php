@@ -28,7 +28,7 @@ class Login extends CI_Controller {
   //********************************** the function below validating user login request 
     function validate_login() {
       
-       // Perform login validation using the login model
+      // Perform login validation using the login model
     $login_check_model = $this->login_model->loginFunctionForAllUsers();
     $login_user = $this->session->userdata('login_type');
 
@@ -37,28 +37,29 @@ class Login extends CI_Controller {
     log_message('debug', 'Selected Database Group: ' . $this->session->userdata('selected_db'));
 
     if (!$login_check_model) {
-      // Handle invalid login credentials
-      $this->session->set_flashdata('error_message', get_phrase('Wrong email or password'));
-      redirect(base_url() . 'login', 'refresh');
-  }
+        // Handle invalid login credentials
+        $this->session->set_flashdata('error_message', get_phrase('Wrong email or password'));
+        redirect(base_url() . 'login', 'refresh');
+    }
 
     // Handle successful login based on user type
     switch ($login_user) {
-      case 'admin':
-      case 'hrm':
-      case 'hostel':
-      case 'accountant':
-      case 'librarian':
-      case 'parent':
-      case 'student':
-      case 'teacher':
-          $this->session->set_flashdata('flash_message', get_phrase('Successfully Login'));
-          redirect(base_url() . $login_user . '/dashboard', 'refresh');
-          break;
-      default:
-          // Handle unknown user type or other cases
-          redirect(base_url() . 'login', 'refresh');
-          break;
+        case 'admin':
+        case 'hrm':
+        case 'hostel':
+        case 'accountant':
+        case 'librarian':
+        case 'parent':
+        case 'student':
+        case 'teacher':
+            $this->session->set_flashdata('flash_message', get_phrase('Successfully Login'));
+            redirect(base_url() . $login_user . '/dashboard', 'refresh');
+            break;
+        default:
+            // Handle unknown user type or other cases
+            $this->session->set_flashdata('error_message', get_phrase('Login failed'));
+            redirect(base_url() . 'login', 'refresh');
+            break;
     }
     }
 
