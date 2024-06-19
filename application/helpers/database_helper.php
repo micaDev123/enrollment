@@ -4,7 +4,7 @@ if (!function_exists('switch_database')) {
     function switch_database() {
         $CI =& get_instance();
         $selected_db = $CI->session->userdata('selected_db');
-        if ($selected_db && in_array($selected_db, ['default', 'db_1', 'db_2'])) {
+        if ($selected_db && in_array($selected_db, ['default', 'STAJULIANA_DB_B1', 'STAJULIANA_DB_B2', 'STAJULIANA_DB_B3'])) {
             $CI->db = $CI->load->database($selected_db, TRUE);
             return $selected_db;
         } else {
