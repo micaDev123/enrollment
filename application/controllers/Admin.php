@@ -13,20 +13,37 @@ class Admin extends CI_Controller {
                 $this->load->model('student_payment_model');            // Load Apllication Model Here
                 $this->load->model('event_model');                      // Load Apllication Model Here
                 $this->load->model('language_model');                      // Load Apllication Model Here
-                $this->load->model('admin_model');                      // Load Apllication Model Here
+                $this->load->model('admin_model'); 
+                switch_database();
+                $this->load->helper('database');                        // Load Apllication Model Here
     }
 
     /**default functin, redirects to login page if no admin logged in yet***/
     public function index() 
 	{
-    if ($this->session->userdata('admin_login') != 1) redirect(base_url() . 'login', 'refresh');
-    if ($this->session->userdata('admin_login') == 1) redirect(base_url() . 'admin/dashboard', 'refresh');
+
+    $admin_login_default = $this->session->userdata('admin_login'); // Check admin login in default database
+    $admin_login_db_1 = $this->session->userdata('admin_login_db_1'); // Check admin login in db_1 database
+    // if ($this->session->userdata('admin_login') != 1) redirect(base_url() . 'login', 'refresh');
+    // if ($this->session->userdata('admin_login') == 1) redirect(base_url() . 'admin/dashboard', 'refresh');
+
+            if ($admin_login_default == 1) {
+                // Admin login found in the default database, redirect to admin dashboard
+                redirect(base_url() . 'admin/dashboard', 'refresh');
+            } elseif ($admin_login_db_1 == 1) {
+                // Admin login found in db_1 database, redirect to admin dashboard
+                redirect(base_url() . 'admin/dashboard', 'refresh');
+            } else {
+                // Admin login not found, redirect to login page
+                redirect(base_url() . 'login', 'refresh');
+            }
     }
 	  /************* / default functin, redirects to login page if no admin logged in yet***/
 
     /*Admin dashboard code to redirect to admin page if successfull login** */
     function dashboard() {
         if ($this->session->userdata('admin_login') != 1) redirect(base_url(), 'refresh');
+        $this->load->model('database_model');
        	$page_data['page_name'] = 'dashboard';
         $page_data['page_title'] = get_phrase('admin_dashboard');
         $this->load->view('backend/index', $page_data);
@@ -99,26 +116,22 @@ class Admin extends CI_Controller {
        $this->crud_model->delete_category($param2);
         $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
         redirect(base_url(). 'admin/enquiry_category', 'refresh');
-
         }
 
         $page_data['page_name']     = 'enquiry_category';
         $page_data['page_title']    = get_phrase('Manage Category');
         $page_data['enquiry_category']  = $this->db->get('enquiry_category')->result_array();
         $this->load->view('backend/index', $page_data);
-
     }
 
 
     function list_enquiry ($param1 = null, $param2 = null, $param3 = null){
-
 
         if($param1 == 'delete')
         {
             $this->crud_model->delete_enquiry($param2);
             $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
             redirect(base_url(). 'admin/list_enquiry', 'refresh');
-    
         }
 
         $page_data['page_name']     = 'list_enquiry';
@@ -185,14 +198,12 @@ class Admin extends CI_Controller {
             $this->session->set_flashdata('flash_message', get_phrase('Data successfully deleted'));
             redirect(base_url(). 'admin/circular', 'refresh');
 
-
         }
 
         $page_data['page_name']         = 'circular';
         $page_data['page_title']        = get_phrase('Manage Circular');
         $page_data['select_circular']   = $this->db->get('circular')->result_array();
         $this->load->view('backend/index', $page_data);
-
     }
 
 
@@ -227,14 +238,6 @@ class Admin extends CI_Controller {
         $this->load->view('backend/index', $page_data);
     }
 
-
- 
-
-
-
-
-
-  
 
 
     function teacher($param1 = null, $param2 = null, $param3 = null){
@@ -1022,10 +1025,33 @@ class Admin extends CI_Controller {
     /***********  The function below manages new admin ***********************/
     function newAdministrator ($param1 = null, $param2 = null, $param3 = null){
 
-        if($param1 == 'create'){
-            $this->admin_model->createNewAdministrator();
+        if ($param1 == 'create') {
+            $level = $this->input->post('level');
+            $selected_db = $this->input->post('database');
+
+            if ($level == '3') { // Create New Portal
+                $new_db_name = 'new_portal_db_' . time(); 
+                $this->admin_model->createNewPortal($new_db_name);
+
+                $this->session->set_userdata('selected_db', $new_db_name);
+                switch_database();
+                $this->admin_model->createNewAdministrator();
+
+                $this->session->set_userdata('selected_db', 'default');
+                switch_database_login('default');
+                $this->admin_model->createNewAdministrator($new_db_name);
+            } else {
+                $this->session->set_userdata('selected_db', $selected_db);
+                switch_database();
+                $this->admin_model->createNewAdministrator();
+
+                $this->session->set_userdata('selected_db', 'default');
+                switch_database_login('default');
+                $this->admin_model->createNewAdministrator($selected_db);
+            }
+
             $this->session->set_flashdata('flash_message', get_phrase('Data saved successfully'));
-            redirect(base_url(). 'admin/newAdministrator', 'refresh');
+            redirect(base_url() . 'admin/newAdministrator', 'refresh');
         }
 
         if($param1 == 'update'){
@@ -1046,10 +1072,23 @@ class Admin extends CI_Controller {
     }
     /***********  The function that manages administrator ends here ***********************/
 
-    function updateAdminRole($param2){
+    function updateAdminRole($param2) {
         $this->admin_model->updateAllDetailsForAdminRole($param2);
         $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
         redirect(base_url(). 'admin/newAdministrator', 'refresh');
+    }
+
+    function listAdmins() {
+        $data['administrators'] = $this->admin_model->get_all_administrators_from_all_databases();
+        $this->load->view('admin/newAdministrator', $data);
+    }
+
+    function updateAdministrator($param2) {
+        if ($this->input->post('operation') == 'update') {
+            $this->admin_model->updateAdministrator($param2);
+            $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
+            redirect(base_url() . 'admin/newAdministrator', 'refresh');
+        }
     }
 	
 	

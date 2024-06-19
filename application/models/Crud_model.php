@@ -6,6 +6,8 @@ class Crud_model extends CI_Model {
 	function __construct()
     {
         parent::__construct();
+        $this->load->helper('database');   
+        switch_database();
     }
 
 
@@ -293,9 +295,11 @@ class Crud_model extends CI_Model {
 
     function system_logo(){
 
+        // move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/enrollment/');
+        // move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/login_logo/' . '.jpg');
         move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/logo.png');
+        // move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/admin_logo/' . $this->session->userdata('admin_id') . '.jpg');
     }
-
 
     function update_settings(){
 

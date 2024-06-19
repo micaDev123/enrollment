@@ -60,7 +60,8 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
 
-$autoload['libraries'] = array('pagination', 'xmlrpc' , 'form_validation', 'email','upload','paypal');
+$autoload['libraries'] = array('pagination', 'xmlrpc', 'form_validation', 'email', 'upload', 'paypal', 'session', 'database');
+
 
 
 /*
@@ -88,7 +89,7 @@ $autoload['drivers'] = array();
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url','file','form','security','string','inflector','directory','download','multi_language');
+$autoload['helper'] = array('url','file','form','security','string','inflector','directory','download','multi_language','database');
 
 
 /*
@@ -137,7 +138,7 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 
-$autoload['model'] = array('email_model' , 'crud_model' , 
+$autoload['model'] = array('email_model' , 'crud_model' , 'database_model',
 'sms_model', 'login_model', 'expense_model', 
 'department_model', 'teacher_model', 'payroll_model', 'class_model', 
 'section_model', 'subject_model', 'dormitory_model', 'exam_model');

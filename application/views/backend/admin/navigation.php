@@ -52,9 +52,9 @@
     <!---  Permission for Admin Dashboard ends here ------>
                     
      <!---  Permission for Admin Manage Subjects starts here ------>
-     <?php $check_admin_permission = $this->db->get_where('admin_role', array('admin_id' => $this->session->userdata('login_user_id')))->row()->manage_section;?>
+     <?php $check_admin_permission = $this->db->get_where('admin_role', array('admin_id' => $this->session->userdata('login_user_id')))->row()->manage_subject;?>
      <?php if($check_admin_permission == '1'):?>   
-        <li> <a href="javascript:void(0);" ><i class="fa fa-mortar-board p-r-10"></i> <span class="hide-menu"> <?php echo get_phrase('Academics');?> <span class="fa arrow"></span></span></a>
+        <li> <a href="javascript:void(0);" ><i class="fa fa-mortar-board p-r-10"></i> <span class="hide-menu"> <?php echo get_phrase('manage_subject');?> <span class="fa arrow"></span></span></a>
                         <ul class=" nav nav-second-level<?php
             if (    $page_name == 'manage_subject'||
                     $page_name == 'manage_section'||
@@ -62,24 +62,13 @@
                     $page_name == 'circular'||
                     $page_name == 'academic_syllabus') echo 'opened active';
             ?> ">
-                            
-       <!-- <li class="<?php if ($page_name == 'manage_section') echo 'active'; ?> ">
-                        <a href="<?php echo base_url(); ?>admin/section">
-                        <i class="fa fa-angle-double-right p-r-10"></i>
-                            <span class="hide-menu"><?php echo get_phrase('list_section'); ?></span>
-                        </a>
-                    </li>   
-           
-                 </ul>
-                </li> -->
 
-
-                         <!-- <li class="<?php if ($page_name == 'subject') echo 'active'; ?>">
+                <li class="<?php if ($page_name == 'manage_subject') echo 'active'; ?>">
                             <a href="<?php echo base_url(); ?>subject/subject/">
                             <i class="fa fa-list p-r-10"></i>
                                  <span class="hide-menu"><?php echo get_phrase('subjects'); ?></span>
                             </a>
-                        </li> -->
+                        </li>
         </ul>
     </li>
     <?php endif;?>
@@ -296,12 +285,7 @@
             </li>
 
 
-                         <li class="<?php if ($page_name == 'subject') echo 'active'; ?>">
-                            <a href="<?php echo base_url(); ?>subject/subject/">
-                            <i class="fa fa-list p-r-10"></i>
-                                 <span class="hide-menu"><?php echo get_phrase('subjects'); ?></span>
-                            </a>
-                        </li>
+                        
 
          
             <!-- <li> <a href="#" ><i data-icon="&#xe006;" class="fa fa-medkit p-r-10"></i> <span class="hide-menu">
@@ -517,7 +501,7 @@
         
         <ul class=" nav nav-second-level<?php
                 if ($page_name == 'system_settings' ||
-                    $page_name == 'manage_language' ||
+                    $page_name == 'manage_database' ||
                     $page_name == 'paymentSetting' ||
                     $page_name == 'sms_settings')
                     echo 'opened active';
@@ -530,6 +514,14 @@
                              <span class="hide-menu"><?php echo get_phrase('general_settings'); ?></span>
                         </a>
                     </li>
+
+                    <li class="<?php if ($page_name == 'manage_database') echo 'active'; ?> ">
+                        <a href="<?php echo base_url(); ?>Systemsetting/manage_database">
+                        <i class="fa fa-angle-double-right p-r-10"></i>
+                             <span class="hide-menu"><?php echo get_phrase('Manage Databases'); ?></span>
+                        </a>
+                    </li>
+
 
   
 

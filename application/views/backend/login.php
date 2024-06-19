@@ -42,9 +42,17 @@ $system_title = $this->db->get_where('settings', array('type' => 'system_title')
   <br><br><br>
     <div class="white-box">
 	 <h4 class="box-title m-b-20" align="center">
-					<img src="<?php echo base_url() ?>uploads/logo.png" class="img-circle" width="70" height="70"/></h4>
-					<h5 align="center"><a href=""><?php echo $system_name;?></a></h5>
-					
+   <!-- <?php
+      $key = $this->session->userdata('login_type') . '_id';
+      $face_file = 'uploads/admin_logo/' . '.jpg';
+      // if (!file_exists($face_file)) {
+      //     $face_file = 'uploads/default.jpg';                                 
+      // }
+      ?>
+          <a href="#" ><img src="<?php echo base_url() . $face_file;?>" class="img-circle" width="50" height="50">
+					<!-- <img src="<?php echo base_url() . $face_file;?>" class="img-circle" width="70" height="70"/></h4> -->
+					<h4 align="center"><a href=""><?php echo $system_name;?></a></h4>
+					 
 					<br><br>
 					
 	<form method="post" role="form" id="loginform" class="form-horizontal form-material" action="<?php echo base_url();?>login/validate_login">
@@ -67,7 +75,11 @@ $system_title = $this->db->get_where('settings', array('type' => 'system_title')
               <label for="checkbox-signup"> <?php echo get_phrase('remember_me');?> </label>
 
             </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> <?php echo get_phrase('forgot_password?');?></a> </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> 
+            <?php echo get_phrase('forgot_password?');?> 
+          </a> 
+          
+          </div>
         </div>
        <div class="form-group text-center m-t-20">
         <div class="col-xs-12">

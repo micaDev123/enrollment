@@ -62,6 +62,102 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+// $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+ 
+// $db['default'] = array(
+// 	'dsn'	=> '',
+// 	'hostname' => $url["host"],
+// 	'username' => $url["user"],
+// 	'password' => $url["pass"],
+// 	'database' => substr($url["path"], 1),
+// 	'dbdriver' => 'mysqli',
+// 	'dbprefix' => '',
+// 	'pconnect' => FALSE,
+// 	'db_debug' => (ENVIRONMENT !== 'production'),
+// 	'cache_on' => FALSE,
+// 	'cachedir' => '',
+// 	'char_set' => 'utf8',
+// 	'dbcollat' => 'utf8_general_ci',
+// 	'swap_pre' => '',
+// 	'encrypt' => FALSE,
+// 	'compress' => FALSE,
+// 	'stricton' => FALSE,
+// 	'failover' => array(),
+// 	'save_queries' => TRUE
+// );
+
+// $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+
+// $db['default'] = array(
+//     'dsn'   => '',
+//     'hostname' => 'localhost',
+//     'username' => 'root',
+//     'password' => '',
+//     'database' => 'stajuliana_db',
+//     'dbdriver' => 'mysqli',
+//     'dbprefix' => '',
+//     'pconnect' => FALSE,
+//     'db_debug' => TRUE,
+//     'cache_on' => FALSE,
+//     'cachedir' => '',
+//     'char_set' => 'utf8',
+//     'dbcollat' => 'utf8_general_ci',
+//     'swap_pre' => '',
+//     'encrypt' => FALSE,
+//     'compress' => FALSE,
+//     'stricton' => FALSE,
+//     'failover' => array(),
+//     'save_queries' => TRUE
+// );
+
+// $db['db_1'] = array(
+//     'dsn'   => '',
+//     'hostname' => 'localhost',
+//     'username' => 'root',
+//     'password' => '',
+//     'database' => 'stajuliana_db_b1',
+//     'dbdriver' => 'mysqli',
+//     'dbprefix' => '',
+//     'pconnect' => FALSE,
+//     'db_debug' => TRUE,
+//     'cache_on' => FALSE,
+//     'cachedir' => '',
+//     'char_set' => 'utf8',
+//     'dbcollat' => 'utf8_general_ci',
+//     'swap_pre' => '',
+//     'encrypt' => FALSE,
+//     'compress' => FALSE,
+//     'stricton' => FALSE,
+//     'failover' => array(),
+//     'save_queries' => TRUE
+// );
+
+// $db['db_2'] = array(
+//     'dsn'   => '',
+//     'hostname' => 'localhost',
+//     'username' => 'root',
+//     'password' => '',
+//     'database' => 'stajuliana_db_b2',
+//     'dbdriver' => 'mysqli',
+//     'dbprefix' => '',
+//     'pconnect' => FALSE,
+//     'db_debug' => TRUE,
+//     'cache_on' => FALSE,
+//     'cachedir' => '',
+//     'char_set' => 'utf8',
+//     'dbcollat' => 'utf8_general_ci',
+//     'swap_pre' => '',
+//     'encrypt' => FALSE,
+//     'compress' => FALSE,
+//     'stricton' => FALSE,
+//     'failover' => array(),
+//     'save_queries' => TRUE
+// );
+
+
+// $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+ 
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
  
 $db['default'] = array(
@@ -86,26 +182,75 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 
-// $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-// $db['default'] = array(
-// 	'dsn'	=> '',
-// 	'hostname' => 'localhost',
-// 	'username' => 'root',
-// 	'password' => '',
-// 	'database' => 'stajuliana_db',
-// 	'dbdriver' => 'mysqli',
-// 	'dbprefix' => '',
-// 	'pconnect' => FALSE,
-// 	'db_debug' => TRUE,
-// 	'cache_on' => FALSE,
-// 	'cachedir' => '',
-// 	'char_set' => 'utf8',
-// 	'dbcollat' => 'utf8_general_ci',
-// 	'swap_pre' => '',
-// 	'encrypt' => FALSE,
-// 	'compress' => FALSE,
-// 	'stricton' => FALSE,
-// 	'failover' => array(),
-// 	'save_queries' => TRUE
-// );
+$url = parse_url(getenv("STAJULIANA_DB_B1"));
+ 
+$db['STAJULIANA_DB_B1'] = array(
+	'dsn'	=> '',
+	'hostname' => $url["host"],
+	'username' => $url["user"],
+	'password' => $url["pass"],
+	'database' => substr($url["path"], 1),
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);
+
+$url = parse_url(getenv("STAJULIANA_DB_B2"));
+ 
+$db['STAJULIANA_DB_B2'] = array(
+	'dsn'	=> '',
+	'hostname' => $url["host"],
+	'username' => $url["user"],
+	'password' => $url["pass"],
+	'database' => substr($url["path"], 1),
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);
+
+$url = parse_url(getenv("STAJULIANA_DB_B3"));
+ 
+$db['STAJULIANA_DB_B3'] = array(
+	'dsn'	=> '',
+	'hostname' => $url["host"],
+	'username' => $url["user"],
+	'password' => $url["pass"],
+	'database' => substr($url["path"], 1),
+	'dbdriver' => 'mysqli',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);

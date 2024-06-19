@@ -6,8 +6,13 @@ class Systemsetting extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        		$this->load->database();							// load database library
         		$this->load->library('session');					//Load library for session
+                $this->load->helper('url');
+                $this->load->database(); // Ensure database library is loaded
+                $this->load->model('database_model');  
+                $this->load->helper('database');   
+                switch_database();
+
     }
 
 
@@ -39,6 +44,7 @@ class Systemsetting extends CI_Controller {
     if ($param1 == 'upload_logo') 
 	{
        $this->crud_model->system_logo();
+    //    move_uploaded_file($_FILES['userfile']['tmp_name'], 'uploads/enrollment/' . $this->session->userdata('admin_id') . '.jpg');
        $this->session->set_flashdata('flash_message', get_phrase('settings_updated'));
        redirect(base_url() . 'systemsetting/system_settings', 'refresh');
     }
@@ -56,10 +62,17 @@ class Systemsetting extends CI_Controller {
     $page_data['page_title'] = get_phrase('system_settings');
     $page_data['settings'] = $this->db->get('settings')->result_array();
     $this->load->view('backend/index', $page_data);
-    }
-	
+    }    
+        function manage_database() {
 
+            $database = $this->input->post('database');
+            $this->session->set_userdata('selected_db', $database);
+            switch_database($database);
 
-	
-	
+            $page_data['page_name'] = 'manage_database';
+            $page_data['page_title'] = get_phrase('database setting');
+            $this->load->view('backend/index', $page_data);
+    
+}
+
 }
