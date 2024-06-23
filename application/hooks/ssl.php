@@ -8,4 +8,3 @@ function redirect_ssl() {
         redirect($CI->config->config['base_url'].$CI->uri->uri_string());
     }
 }
-?>
